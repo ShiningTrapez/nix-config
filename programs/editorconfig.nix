@@ -1,0 +1,17 @@
+{ ... }:
+
+{
+  editorconfig.enable = true;
+  editorconfig.settings = {
+    "*" = {
+      tab_width = 2;
+      charset = "utf-8";
+      end_of_line = "lf";
+      indent_size = "tab";
+      indent_style = "space";
+      max_line_length = 120;
+      insert_final_newline = true;
+      trim_trailing_whitespace = true;
+    };
+  };
+}

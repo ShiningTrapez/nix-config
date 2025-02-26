@@ -17,30 +17,39 @@
     ...
   } @ inputs: let
     hostname = "RainbowMachine";
-    filesIn = dir: (map (fname: dir + "/${fname}") (builtins.attrNames (builtins.readDir dir)));
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    # pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
-    devShells.x86_64-linux.default = pkgs.mkShell {
-      nativeBuildInputs = [];
-    };
+    # devShells.x86_64-linux.default = pkgs.mkShell {
+    #   nativeBuildInputs = [];
+    # };
 
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs.inputs = inputs;
-      modules =
-        (filesIn ./system)
-        ++ [
-          ./hardware/${hostname}.nix
+      modules = [
+        ./hardware/${hostname}.nix
+        ./system
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bak";
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "bak";
 
-            home-manager.extraSpecialArgs.inputs = inputs;
-            home-manager.users.sophia = import ./sophia.nix;
-          }
-        ];
+          home-manager.extraSpecialArgs.inputs = inputs;
+          home-manager.users.sophia = {
+            home.stateVersion = "23.11";
+
+            home.username = "sophia";
+            home.homeDirectory = "/home/sophia";
+
+            imports = [
+              ./programs
+              ./config
+            ];
+
+            programs.home-manager.enable = true;
+          };
+        }
+      ];
     };
   };
 }

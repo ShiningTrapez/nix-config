@@ -58,7 +58,7 @@ games () {
 game () {
   if [[ $# -eq 0 ]]; then;
     SELECTION=$(__steam-game-defs \
-    | jq -r ".[] | select(.name == \"$(__steam-game-defs \
+  |   jq -r ".[] | select(.name == \"$(__steam-game-defs \
     | jq -r 'map(.name) | join("\n")' \
     | fzf +m --cycle --border --layout=reverse)\") | .id")
   else
@@ -70,7 +70,7 @@ game () {
 
 _game () {
   _alternative "args:Installed Games:$(__steam-game-defs \
-    | jq -r '"((\(. | map("\(.id)\\:\"\(.name)\"") | join(" "))))"')"
+  | jq -r '"((\(. | map("\(.id)\\:\"\(.name)\"") | join(" "))))"')"
 }
 
 compdef _game game
@@ -90,11 +90,11 @@ __steam-game-defs | jq -r '.[]|[.id, .name] | @tsv' |
   [[ "$TERM_PROGRAM" != "vscode" \
     && -z $EMACS_VTERM_PATH \
     && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]] && {
-    # Use Rainbow Version on Rainbow Machine
-    [[ $(hostname) == "RainbowMachine" ]] \
+      # Use Rainbow Version on Rainbow Machine
+      [[ $(hostname) == "RainbowMachine" ]] \
         && macchina | lolcat -tp 2.0 || {
-          # TODO: This is terrible
-          macchina | sed "s/RainbowMachine /Zephyrus ──────/g"
-        }
+        # TODO: This is terrible
+        macchina | sed "s/RainbowMachine /Zephyrus ──────/g"
+      }
     }
-}
+  }

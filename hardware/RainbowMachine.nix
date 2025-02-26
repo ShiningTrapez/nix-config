@@ -1,13 +1,22 @@
 # Generated with nixos-generate-config
-{ config, lib, pkgs, modulesPath, ... }:
-
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  config,
+  lib,
+  modulesPath,
+  ...
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "usb_storage"
+    "usbhid"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [];
 
   fileSystems."/" = {
@@ -20,9 +29,11 @@
     fsType = "vfat";
   };
 
-  swapDevices = [{
-    device = "/dev/disk/by-uuid/1117a1dc-e624-47ab-b882-dafd5dddf29f";
-  }];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-uuid/1117a1dc-e624-47ab-b882-dafd5dddf29f";
+    }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

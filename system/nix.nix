@@ -1,6 +1,4 @@
-{ ... }: 
-
-{
+{...}: {
   # man configuration.nix / https://nixos.org/nixos/options.html
   system.stateVersion = "23.11";
 
@@ -8,16 +6,14 @@
   programs.nix-ld.enable = true;
 
   nix = {
-    # gc.automatic = true;
-
     settings = {
       auto-optimise-store = true;
 
       allowed-users = ["@wheel"];
-      trusted-users = ["root" "@wheel"];
-
-      # https://nix.dev/manual/nix/2.25/command-ref/conf-file.html#conf-download-buffer-size
-      # download-buffer-size = 256000000;
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
 
       substituters = [
         "https://cache.nixos.org"

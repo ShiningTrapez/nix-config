@@ -1,8 +1,4 @@
-{ pkgs, ... }:
-
-{
-  # services.auto-cpufreq.enable = true;
-
+{pkgs, ...}: {
   boot = {
     tmp.cleanOnBoot = true;
 

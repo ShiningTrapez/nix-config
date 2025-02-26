@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -16,8 +14,11 @@
   # Control Media Player with Bluetooth
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
-    after = [ "network.target" "sound.target" ];
-    wantedBy = [ "default.target" ];
+    after = [
+      "network.target"
+      "sound.target"
+    ];
+    wantedBy = ["default.target"];
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
@@ -31,7 +32,7 @@
     wireplumber = {
       configPackages = [
         (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
-        wireplumber.settings = { bluetooth.autoswitch-to-headset-profile = false }
+          wireplumber.settings = { bluetooth.autoswitch-to-headset-profile = false }
         '')
       ];
     };

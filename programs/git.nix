@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     delta # https://github.com/dandavison/delta
   ];
@@ -145,16 +147,20 @@
           email = "peter.morris-hind@bbc.co.uk";
           signingkey = "${config.home.homeDirectory}/.ssh/id_github_work.pub";
         };
-      }; in [{
-      condition = "gitdir:${config.home.homeDirectory}/Work/**";
-      contents = workInfo;
-    } {
-      condition = "hasconfig:remote.*.url:git@github.com:bbc/**";
-      contents = workInfo;
-    }];
+      };
+    in [
+      {
+        condition = "gitdir:${config.home.homeDirectory}/Work/**";
+        contents = workInfo;
+      }
+      {
+        condition = "hasconfig:remote.*.url:git@github.com:bbc/**";
+        contents = workInfo;
+      }
+    ];
 
     # Local Config
-    ignores = [ ".direnv" ];
+    ignores = [".direnv"];
   };
 
   home.file.".ssh/allowed_signers".text = ''

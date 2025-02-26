@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   hardware.opentabletdriver.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -71,8 +69,8 @@
 
     discord-ptb
     # (discord-ptb.override {
-      # withOpenASAR = true;
-      # withVencord = true;
+    # withOpenASAR = true;
+    # withVencord = true;
     # })
     # vesktop # Discord Alt Client
     slack

@@ -1,5 +1,4 @@
-{ ... }:
-
+{...}:
 # Disable Sleep
 {
   powerManagement.enable = false;
@@ -25,5 +24,5 @@
         unitConfig.DefaultDependencies = "no";
       };
     };
-  }; 
+  };
 }

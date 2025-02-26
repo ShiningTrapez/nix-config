@@ -1,6 +1,4 @@
-{ pkgs, ... }: 
-
-{
+{pkgs, ...}: {
   # CVE-2024-47176
   # services.printing.browsed.enable = false;
 
@@ -27,7 +25,11 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Sophia Morningstar";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     uid = 1000;
   };
 
@@ -40,14 +42,6 @@
 
   # Needed for SignIn in VSCode
   services.gnome.gnome-keyring.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   services.openssh.enable = true;
 

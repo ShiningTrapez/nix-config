@@ -1,11 +1,8 @@
-{ lib, ... }:
-
-with lib.hm.gvariant;
-
-{
+{lib, ...}:
+with lib.hm.gvariant; {
   dconf.settings = {
     "apps/seahorse/listing" = {
-      keyrings-selected = [ "openssh:///home/sophia/.ssh" ];
+      keyrings-selected = ["openssh:///home/sophia/.ssh"];
     };
 
     "org/gnome/desktop/a11y/applications" = {

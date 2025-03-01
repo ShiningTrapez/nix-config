@@ -26,7 +26,6 @@ in {
 
     fnm
     atuin
-    starship
     macchina
     lolcat
     # patchelf

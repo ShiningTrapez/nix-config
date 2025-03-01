@@ -9,25 +9,33 @@
       url = "github:nix-community/home-manager/master?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    bandithedoge-nur.url = "github:bandithedoge/nur-packages/master?shallow=1";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    nur,
     ...
   } @ inputs: let
+    # system = "x86_64-linux";
     hostname = "RainbowMachine";
-    # pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
-    # devShells.x86_64-linux.default = pkgs.mkShell {
-    #   nativeBuildInputs = [];
-    # };
-
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs.inputs = inputs;
       modules = [
+        ./overlays.nix
         ./hardware/${hostname}.nix
         ./system
+
+        # https://nur.nix-community.org
+        nur.modules.nixos.default
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

@@ -13,5 +13,7 @@ in {
     nixpkgs-24.blender
     steam-acf
     webcamoid
+    ungoogled-chromium
+    nur.repos.bandithedoge.waterfox-bin
   ];
 }

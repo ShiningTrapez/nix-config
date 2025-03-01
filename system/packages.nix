@@ -62,11 +62,6 @@
 
     # networkmanagerapplet
 
-    firefox
-    ungoogled-chromium
-    # google-chrome
-    # playwright-driver.browsers
-
     discord-ptb
     # (discord-ptb.override {
     # withOpenASAR = true;

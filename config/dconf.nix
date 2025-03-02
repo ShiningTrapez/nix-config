@@ -8,6 +8,7 @@
     settings = {
       "org/gnome/settings-daemon/plugins/power" = {
         sleep-inactive-ac-type = "logout";
+        power-button-action = "interactive";
       };
 
       "apps/seahorse/listing" = {

@@ -12,7 +12,7 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       cursor-size = 24;
-      cursor-theme = "breeze_cursors";
+      cursor-theme = "Adwaita";
       enable-animations = true;
       font-name = "Monoid Nerd Font Mono,  10";
       icon-theme = "breeze-dark";

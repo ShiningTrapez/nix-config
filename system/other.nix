@@ -19,7 +19,38 @@
   # Desktop
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+
+  services.xserver = {
+    desktopManager.gnome.enable = true;
+  };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    atomix # puzzle game
+    cheese # webcam tool
+    epiphany # web browser
+    evince # document viewer
+    geary # email reader
+    gedit # text editor
+    gnome-characters
+    gnome-music
+    gnome-photos
+    gnome-terminal
+    gnome-tour
+    hitori # sudoku game
+    iagno # go game
+    tali # poker game
+    totem # video player
+  ]);
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    adwaita-icon-theme
+  ];
+
+  services.udev.packages = with pkgs; [
+    gnome-settings-daemon
+  ];
 
   users.users.sophia = {
     shell = pkgs.zsh;

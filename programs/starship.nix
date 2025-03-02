@@ -2,7 +2,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[┌─{](dimmed purple) \${custom.rainbow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nixshell$nodejs$haskell$gradle$java$kotlin\\]─>](dimmed purple)\n[└─>](dimmed purple) $jobs";
+      format = "[┌─{](dimmed purple) \${custom.rainbow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nodejs$haskell$gradle$java$kotlin\\]─>](dimmed purple)\n[└─>](dimmed purple) $jobs";
       right_format = "$git_branch$git_commit$git_metrics$git_state$git_status";
       directory.format = "[$path]($style)[$read_only]($read_only_style)";
 

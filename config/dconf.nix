@@ -1,6 +1,10 @@
 {lib, ...}:
 with lib.hm.gvariant; {
   dconf.settings = {
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "logout";
+    };
+
     "apps/seahorse/listing" = {
       keyrings-selected = ["openssh:///home/sophia/.ssh"];
     };

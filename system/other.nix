@@ -55,7 +55,7 @@
   users.users.sophia = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    description = "Sophia Morningstar";
+    description = "Sophia";
     extraGroups = [
       "networkmanager"
       "wheel"

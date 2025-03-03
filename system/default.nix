@@ -12,5 +12,7 @@
     ./packages.nix
     ./sleep.nix
     ./sound.nix
+
+    ./sddm
   ];
 }

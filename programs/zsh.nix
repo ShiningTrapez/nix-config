@@ -53,7 +53,6 @@ in {
       gpu-temperature = "nvidia-smi --query-gpu=temperature.gpu --format csv | tail -n1 | sed 's/$/C/'";
       system-temperature = "echo \"CPU: $(temperature)\nGPU: $(gpu-temperature)\"";
       gpu-info = "nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5";
-      hsudo = "sudo --preserve-env=PATH,HOME,EDITOR";
 
       reload = "source ${xdg-config-dir}/zsh/.zshrc";
       system-config = "code --wait ${nix-config-dir}";

@@ -1,10 +1,17 @@
-{pkgs, ...}: {
+{ pkgs, ... }: with pkgs; {
   # CVE-2024-47176
   # services.printing.browsed.enable = false;
 
-  # TODO: Figure out how to override branch
   hardware.ckb-next = {
     enable = true;
+    package = ckb-next.overrideAttrs (old: {
+      src = fetchFromGitHub {
+        owner = "ckb-next";
+        repo = "ckb-next";
+        rev = "73707dca688d95a3bf451226f133c53d2346aaad"; # K100-v2 branch
+        hash = "sha256-adXMnUjGvfWg7O3pDomKKWdKmALiT9S93KOG3Aa45Ao=";
+      };
+    });
   };
 
   programs.zsh.enable = true;
@@ -13,8 +20,8 @@
   # programs.thunar.enable = true;
   programs.xfconf.enable = true;
 
-  # services.gvfs.enable = true; # Mount, Trash etc.
-  # services.tumbler.enable = true; # Thumbnail Support
+  services.gvfs.enable = true; # Mount, Trash etc.
+  services.tumbler.enable = true; # Thumbnail Support
 
   # Desktop
   services.xserver.enable = true;
@@ -24,7 +31,7 @@
     desktopManager.gnome.enable = true;
   };
 
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = [
     atomix # puzzle game
     cheese # webcam tool
     epiphany # web browser
@@ -40,19 +47,19 @@
     iagno # go game
     tali # poker game
     totem # video player
-  ]);
+  ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     gnomeExtensions.appindicator
     adwaita-icon-theme
   ];
 
-  services.udev.packages = with pkgs; [
+  services.udev.packages = [
     gnome-settings-daemon
   ];
 
   users.users.sophia = {
-    shell = pkgs.zsh;
+    shell = zsh;
     isNormalUser = true;
     description = "Sophia";
     extraGroups = [
@@ -81,6 +88,5 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # Steam
   programs.steam.enable = true;
 }

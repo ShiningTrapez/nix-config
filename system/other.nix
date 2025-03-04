@@ -50,8 +50,9 @@
   ];
 
   environment.systemPackages = [
-    gnomeExtensions.appindicator
     adwaita-icon-theme
+    gnome-tweaks
+    gnomeExtensions.appindicator
   ];
 
   services.udev.packages = [

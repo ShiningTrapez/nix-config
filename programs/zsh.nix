@@ -56,9 +56,9 @@ in {
       hsudo = "sudo --preserve-env=PATH,HOME,EDITOR";
 
       reload = "source ${xdg-config-dir}/zsh/.zshrc";
-      system-config = "code --wait ${nix-config-dir} ${nix-config-dir}/flake.nix";
+      system-config = "code --wait ${nix-config-dir}";
       system-update-flake = "nix flake update ${nix-config-dir}";
-      system-rebuild = "system-update-flake && sudo nixos-rebuild switch --impure --flake ${nix-config-dir} && reload";
+      system-rebuild = "sudo nixos-rebuild switch --impure --flake ${nix-config-dir} && reload";
       clean = "nix-collect-garbage -d";
       system-clean = "sudo clean-generations 2 0 system && clean";
 

@@ -16,6 +16,7 @@ in {
     ungoogled-chromium
     nur.repos.bandithedoge.waterfox-bin
     protonup-qt
+    protontricks
 
     imagemagick
     vlc

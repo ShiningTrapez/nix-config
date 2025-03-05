@@ -15,6 +15,7 @@ in {
     webcamoid
     ungoogled-chromium
     nur.repos.bandithedoge.waterfox-bin
+    protonup-qt
 
     imagemagick
     vlc

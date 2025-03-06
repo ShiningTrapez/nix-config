@@ -2,18 +2,6 @@
   # CVE-2024-47176
   # services.printing.browsed.enable = false;
 
-  hardware.ckb-next = {
-    enable = true;
-    package = ckb-next.overrideAttrs (old: {
-      src = fetchFromGitHub {
-        owner = "ckb-next";
-        repo = "ckb-next";
-        rev = "73707dca688d95a3bf451226f133c53d2346aaad"; # K100-v2 branch
-        hash = "sha256-adXMnUjGvfWg7O3pDomKKWdKmALiT9S93KOG3Aa45Ao=";
-      };
-    });
-  };
-
   programs.zsh.enable = true;
 
   # File Explorer

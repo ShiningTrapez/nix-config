@@ -29,17 +29,17 @@ if ! [ -L "$LOCAL_FONT_DIR" ]; then ln -s "/run/current-system/sw/share/X11/font
 eval "$(fnm env --use-on-cd)"
 
 repo_root() {
-  cd $(git rev-parse --show-toplevel 2>/dev/null || echo $PWD)
+  cd "$(git rev-parse --show-toplevel 2>/dev/null || echo "$PWD")" || exit
 }
 
 # TODO: Can this be done with Home Manager?
 alias -g G='| grep'
 alias -g B='| bat'
 
-which='(alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot'
+export which='(alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot'
 
 __installed() {
-  (which $1 > /dev/null 2>&1)
+  (which "$1" > /dev/null 2>&1)
   echo $?
 }
 
@@ -55,8 +55,9 @@ __steam_game_defs() {
     return
   fi
 
+  # https://www.shellcheck.net/wiki/SC2156
   find ~/.local/share/Steam/steamapps -maxdepth 1 -type f -name '*.acf' -exec \
-    sh -c "acf {} | jq -r '.AppState | {id: .appid, name: .name}'" \; \
+    sh -c "acf \$1 | jq -r '.AppState | {id: .appid, name: .name}'" shell {} \; \
     | jq -s '. | map(select((.name | test(".*(Proton|Steam Linux|Steamworks).*") | not)))'
 }
 
@@ -67,7 +68,7 @@ games() {
 }
 
 game() {
-  if [[ $# -eq 0 ]]; then;
+  if [[ $# -eq 0 ]]; then
     SELECTION=$(__steam_game_defs \
   |   jq -r ".[] | select(.name == \"$(__steam_game_defs \
     | jq -r 'map(.name) | join("\n")' \
@@ -76,7 +77,7 @@ game() {
     SELECTION=$1
   fi
 
-  steam steam://rungameid/$SELECTION
+  steam steam://rungameid/"$SELECTION"
 }
 
 _game() {
@@ -88,7 +89,9 @@ compdef _game game
 
 __steam_game_defs | jq -r '.[]|[.id, .name] | @tsv' |
   while IFS=$'\t' read -r id name; do
-    ALIAS_NAME=$(tr -dc 'a-zA-z0-9' <<< "$name" | tr '[:upper:]' '[:lower:]')
+    ALIAS_NAME=$(tr -dc 'a-zA-Z0-9' <<< "$name" | tr '[:upper:]' '[:lower:]')
+
+    # shellcheck disable=SC2139
     alias "$ALIAS_NAME"="steam steam://rungameid/$id"
   done
 
@@ -98,7 +101,7 @@ __check_directory_for_new_repository() {
   current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
 
   if [ "$current_repository" ] && [ "$current_repository" != "$last_repository" ]; then
-    onefetch --nerd-fonts --no-art -d created -d authors -d contributors -d dependencies
+    onefetch --nerd-fonts --no-art --no-color-palette -d created -d authors -d contributors -d dependencies
   fi
 
   last_repository="$current_repository"
@@ -106,9 +109,12 @@ __check_directory_for_new_repository() {
 
 __setup_case_insensitive_cdpath() {
   while IFS= read -d ':' -r cdpath_el; do
-    for el in $(\ls $cdpath_el); do
+    # https://stackoverflow.com/questions/2107945/how-to-loop-over-directories-in-linux
+    for el in "$cdpath_el"/*/; do
       BASE_NAME=$(basename "$el")
-      ALIAS_NAME=$(tr -dc 'a-zA-z0-9' <<< "$BASE_NAME" | tr '[:upper:]' '[:lower:]')
+      ALIAS_NAME=$(tr -dc 'a-zA-Z0-9' <<< "$BASE_NAME" | tr '[:upper:]' '[:lower:]')
+
+      # shellcheck disable=SC2139
       [[ "$ALIAS_NAME" != "$BASE_NAME" ]] && alias "$ALIAS_NAME"="cd $el"
     done
   done < <(printf "%s\n" "$CDPATH")
@@ -123,6 +129,7 @@ __setup_case_insensitive_cdpath() {
 
   __setup_case_insensitive_cdpath
 
+  # shellcheck disable=SC2139
   alias config="cd $HOME/Projects/nix-config"
 
   # Only run Macchina if not in VSCode, Jetbrains IDEs, or Emacs
@@ -130,8 +137,8 @@ __setup_case_insensitive_cdpath() {
     && -z $EMACS_VTERM_PATH \
     && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]] && {
       # Use Rainbow Version on Rainbow Machine
-      [[ $(hostname) == "RainbowMachine" ]] \
-        && macchina | lolcat -tp 2.0 || {
+      ([[ $(hostname) == "RainbowMachine" ]] \
+        && macchina | lolcat -tp 2.0) || {
         # TODO: This is terrible
         macchina | sed "s/RainbowMachine /Zephyrus ──────/g"
       }

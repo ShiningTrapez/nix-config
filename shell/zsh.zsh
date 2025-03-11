@@ -123,6 +123,8 @@ __setup_case_insensitive_cdpath() {
 
   __setup_case_insensitive_cdpath
 
+  alias config="cd $HOME/Projects/nix-config"
+
   # Only run Macchina if not in VSCode, Jetbrains IDEs, or Emacs
   [[ "$TERM_PROGRAM" != "vscode" \
     && -z $EMACS_VTERM_PATH \

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  nix-config-dir = "${projects}/config";
+  nix-config-dir = "${projects}/nix-config";
   xdg-config-dir = "${config.home.homeDirectory}/.config";
 
   projects = "${config.home.homeDirectory}/Projects";

@@ -17,7 +17,7 @@ if ! [ -L "$LOCAL_FONT_DIR" ]; then ln -s "/run/current-system/sw/share/X11/font
 # FNM
 eval "$(fnm env --use-on-cd)"
 
-repo-root () {
+repo_root () {
   cd $(git rev-parse --show-toplevel 2>/dev/null || echo $PWD)
 }
 
@@ -35,7 +35,7 @@ __installed () {
 echoerr() { cat <<< "$@" 1>&2; }
 
 # Steam
-__steam-game-defs () {
+__steam_game_defs () {
   ACF_INSTALLED=$(__installed acf)
   JQ_INSTALLED=$(__installed jq)
 
@@ -50,15 +50,15 @@ __steam-game-defs () {
 }
 
 games () {
-  __steam-game-defs \
+  __steam_game_defs \
     | jq -r '. | map("\(.name);\(.id)") | join("\n")'\
     | column --table --table-columns NAME,ID -s ';'
 }
 
 game () {
   if [[ $# -eq 0 ]]; then;
-    SELECTION=$(__steam-game-defs \
-  |   jq -r ".[] | select(.name == \"$(__steam-game-defs \
+    SELECTION=$(__steam_game_defs \
+  |   jq -r ".[] | select(.name == \"$(__steam_game_defs \
     | jq -r 'map(.name) | join("\n")' \
     | fzf +m --cycle --border --layout=reverse)\") | .id")
   else
@@ -69,22 +69,41 @@ game () {
 }
 
 _game () {
-  _alternative "args:Installed Games:$(__steam-game-defs \
+  _alternative "args:Installed Games:$(__steam_game_defs \
   | jq -r '"((\(. | map("\(.id)\\:\"\(.name)\"") | join(" "))))"')"
 }
 
 compdef _game game
 
-__steam-game-defs | jq -r '.[]|[.id, .name] | @tsv' |
+__steam_game_defs | jq -r '.[]|[.id, .name] | @tsv' |
   while IFS=$'\t' read -r id name; do
     ALIAS_NAME=$(tr -dc 'a-zA-z0-9' <<< $name | tr '[:upper:]' '[:lower:]')
     alias $ALIAS_NAME="steam steam://rungameid/$id"
   done
 
+# https://github.com/o2sh/onefetch/wiki/getting-started#1-bash--zsh
+last_repository=
+__check_directory_for_new_repository() {
+  current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
+
+  if [ "$current_repository" ] && [ "$current_repository" != "$last_repository" ]; then
+    onefetch --nerd-fonts --no-art -d created -d authors -d contributors -d dependencies
+  fi
+
+  last_repository=$current_repository
+}
+
+cd() {
+  builtin cd "$@"
+  __check_directory_for_new_repository
+}
+
 # Only run in Interactive Prompts
 [[ $- == *i* ]] && {
   eval "$(atuin init zsh)"
   eval "$(starship init zsh)"
+
+  __check_directory_for_new_repository
 
   # Only run Macchina if not in VSCode, Jetbrains IDEs, or Emacs
   [[ "$TERM_PROGRAM" != "vscode" \

@@ -10,7 +10,7 @@
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    userName = "Sophia Morningstar";
+    userName = "Sophia Bitterstar";
     userEmail = "sophia@shiningtrapezohedron.com";
 
     iniContent.gpg.format = pkgs.lib.mkForce "ssh";
@@ -34,6 +34,9 @@
         commitall = "!acpp() { git add . && git commit -aqm \"$1\" &&
           git pull -q --no-progress && git push -q; }; acpp";
         undo = "reset --hard @{1}";
+
+        summary = "!which onefetch 2>&1 >/dev/null &&
+          onefetch --nerd-fonts --no-art -d created -d authors -d contributors -d dependencies";
       };
 
       # Delta

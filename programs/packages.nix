@@ -29,6 +29,7 @@ in {
     fnm
     atuin
     macchina
+    onefetch
     lolcat
     # patchelf
     flameshot

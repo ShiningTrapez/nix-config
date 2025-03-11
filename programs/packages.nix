@@ -27,7 +27,6 @@ in {
     seahorse # GUI for Gnome Keyring
 
     fnm
-    atuin
     macchina
     onefetch
     lolcat

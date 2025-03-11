@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./atuin.nix
     ./direnv.nix
     ./editorconfig.nix
     ./emacs.nix

@@ -38,7 +38,7 @@
       jobs.format = "[$symbol( \($number\))]($style) ";
 
       nix_shell = {
-        format = " [$symbol$state( ($name))]($style) ";
+        format = " [$symbol$state( ($name))]($style)";
         disabled = false;
         impure_msg = "[impure](bold red)";
         pure_msg = "[pure](bold green)";

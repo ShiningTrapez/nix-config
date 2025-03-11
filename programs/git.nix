@@ -36,7 +36,7 @@
         undo = "reset --hard @{1}";
 
         summary = "!which onefetch 2>&1 >/dev/null &&
-          onefetch --nerd-fonts --no-art -d created -d authors -d contributors -d dependencies";
+          onefetch --nerd-fonts --no-art --no-color-palette -d created -d authors -d contributors -d dependencies";
       };
 
       # Delta

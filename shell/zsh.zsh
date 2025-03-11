@@ -28,7 +28,7 @@ if ! [ -L "$LOCAL_FONT_DIR" ]; then ln -s "/run/current-system/sw/share/X11/font
 # FNM
 eval "$(fnm env --use-on-cd)"
 
-repo_root() {
+export repo_root() {
   cd "$(git rev-parse --show-toplevel 2>/dev/null || echo "$PWD")" || exit
 }
 
@@ -100,8 +100,15 @@ last_repository=
 __check_directory_for_new_repository() {
   current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
 
-  if [ "$current_repository" ] && [ "$current_repository" != "$last_repository" ]; then
-    onefetch --nerd-fonts --no-art --no-color-palette -d created -d authors -d contributors -d dependencies
+  if [[ "$current_repository" ]] \
+    && [[ "$current_repository" != "$last_repository" ]] \
+    && [[ "$TERM_PROGRAM" != "vscode" \
+      && -z $EMACS_VTERM_PATH \
+      && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]]; then {
+        clear
+        echo '\n'
+        onefetch --nerd-fonts --no-color-palette -d created -d authors -d contributors -d dependencies
+      }
   fi
 
   last_repository="$current_repository"
@@ -136,6 +143,8 @@ __setup_case_insensitive_cdpath() {
   [[ "$TERM_PROGRAM" != "vscode" \
     && -z $EMACS_VTERM_PATH \
     && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]] && {
+      clear
+
       # Use Rainbow Version on Rainbow Machine
       ([[ $(hostname) == "RainbowMachine" ]] \
         && macchina | lolcat -tp 2.0) || {

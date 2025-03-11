@@ -11,6 +11,7 @@
         symbol = "DIRENV";
         format = "[[-\\[](dimmed purple)$symbol[\\]](dimmed purple)]($style)";
         description = "Direnv Diff in Environment";
+        style = "dimmed white";
       };
 
       git_commit = {

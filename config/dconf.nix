@@ -7,7 +7,8 @@
     enable = true;
     settings = {
       "org/gnome/settings-daemon/plugins/power" = {
-        sleep-inactive-ac-type = "nothing";
+        sleep-inactive-ac-type = "shutdown";
+        sleep-inactive-ac-timeout = 60 * 60 * 2;
         power-button-action = "interactive";
       };
 

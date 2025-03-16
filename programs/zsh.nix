@@ -39,9 +39,6 @@ in {
       LANG = "en_GB.UTF-8";
       LC_ALL = "en_GB.UTF-8";
 
-      # Honestly ChatGPT told me this - Bevy/ALSA issue
-      # PKG_CONFIG_PATH="${pkgs.alsaLib.dev}/lib/pkgconfig:${pkgs.udev.dev}/lib/pkgconfig";
-
       # Puppeteer is awkward on Nix
       PUPPETEER_SKIP_DOWNLOAD = 1;
     };

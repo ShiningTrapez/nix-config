@@ -31,7 +31,6 @@ in {
     macchina
     onefetch
     lolcat
-    # patchelf
     flameshot
     unzip
     nixd
@@ -46,29 +45,14 @@ in {
     texlive.combined.scheme-full
     prismlauncher
 
-    discord-ptb
     # (discord-ptb.override {
     # withOpenASAR = true;
     # withVencord = true;
     # })
-    # vesktop # Discord Alt Client
+    vesktop # Discord Alt Client
     slack
     teams-for-linux
     vscode
-
-    # Rust/Bevy (And possibly Minecraft?)
-    # pkg-config
-    # alsa-oss
-    # udev
-    # alsaLib
-    # libGL
-    # vulkan-loader
-
-    # xorg.libX11
-    # xorg.libXcursor
-    # xorg.libXi
-    # xorg.libXrandr
-    # xorg.libXrender
 
     # Screenshots
     grim

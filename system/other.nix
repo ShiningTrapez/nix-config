@@ -1,11 +1,5 @@
 { pkgs, ... }: with pkgs; {
-  # CVE-2024-47176
-  # services.printing.browsed.enable = false;
-
   programs.zsh.enable = true;
-
-  # File Explorer
-  # programs.thunar.enable = true;
   programs.xfconf.enable = true;
 
   services.gvfs.enable = true; # Mount, Trash etc.

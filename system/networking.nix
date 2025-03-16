@@ -23,13 +23,4 @@
   };
 
   networking.networkmanager.wifi.backend = "iwd";
-
-  system.activationScripts = {
-    rfkillUnblockWlan = {
-      text = ''
-        rfkill unblock wlan
-      '';
-      deps = [];
-    };
-  };
 }

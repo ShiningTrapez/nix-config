@@ -24,7 +24,6 @@
     nur,
     ...
   } @ inputs: let
-    # system = "x86_64-linux";
     hostname = "RainbowMachine";
   in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {

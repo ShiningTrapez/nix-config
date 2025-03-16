@@ -70,13 +70,6 @@
         ignore_timeout = true;
       };
 
-      # sudo = {
-      #   disabled = false;
-      #   symbol = "";
-      #   style ="dimmed blue";
-      #   format = "[\\[S\\]]($style)";
-      # };
-
       time = {
         disabled = false;
         style = "bold purple";

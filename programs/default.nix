@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./atuin.nix
+    ./copyq.nix
     ./direnv.nix
     ./editorconfig.nix
     ./emacs.nix

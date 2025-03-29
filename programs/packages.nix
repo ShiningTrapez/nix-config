@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+{ pkgs, inputs, ... }: let
   nixpkgs-24 = inputs.nixpkgs-24.legacyPackages.x86_64-linux;
 in {
   programs.jq.enable = true;

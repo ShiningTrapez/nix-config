@@ -154,8 +154,6 @@ __setup_case_insensitive_cdpath() {
     }
 }
 
-export NIX_CONFIG_DIR="$HOME/Projects/nix-config"
-
 reload() {
   source "$NIX_CONFIG_DIR"/zsh/.zshrc
 }
@@ -185,7 +183,7 @@ system-upgrade() {
   system-rebuild
   system-clean
   pushd "$NIX_CONFIG_DIR"
-  git diff --quiet -- programs/zsh.nix || (git commit flake.nix -m 'Update Flake' &> /dev/null && git push --quiet)
+  git diff --quiet -- programs/zsh.nix || (git commit flake.nix -m 'Update Flake' && git push)
   popd
 }
 

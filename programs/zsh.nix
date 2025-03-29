@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: let
+  nix-config-dir = "${projects}/nix-config";
   xdg-config-dir = "${config.home.homeDirectory}/.config";
 
   projects = "${config.home.homeDirectory}/Projects";
@@ -40,6 +41,8 @@ in {
 
       # Puppeteer is awkward on Nix
       PUPPETEER_SKIP_DOWNLOAD = 1;
+
+      NIX_CONFIG_DIR = "${nix-config-dir}";
     };
 
     shellAliases = {

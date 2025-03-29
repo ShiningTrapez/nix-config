@@ -152,7 +152,40 @@ __setup_case_insensitive_cdpath() {
         macchina | sed "s/RainbowMachine /Zephyrus ──────/g"
       }
     }
-  }
+}
+
+reload() {
+  source "$NIX_CONFIG_DIR"/zsh/.zshrc
+}
+
+system-config() {
+  code --wait "$NIX_CONFIG_DIR"
+}
+
+system-update-flake() {
+  nix flake update "$NIX_CONFIG_DIR"
+}
+
+system-rebuild() {
+  sudo nixos-rebuild switch --impure --flake "$NIX_CONFIG_DIR" && reload
+}
+
+clean() {
+  nix-collect-garbage -d
+}
+
+system-clean() {
+  sudo clean-generations 2 0 system && clean
+}
+
+system-upgrade() {
+  system-update-flake
+  system-rebuild
+  system-clean
+  pushd "$NIX_CONFIG_DIR"
+  git diff --quiet -- programs/zsh.nix || (git commit flake.nix -m 'Update Flake' && git push)
+  popd
+}
 
 compinit
 rehash

@@ -59,8 +59,4 @@ in {
     slurp
     swappy
   ];
-
-  home.file."${config.home.homeDirectory}/.waterfox/profiles.ini" = {
-    source = ../config/waterfox-profiles.ini;
-  };
 }

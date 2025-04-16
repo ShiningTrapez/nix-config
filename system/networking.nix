@@ -10,6 +10,10 @@ in {
     hostName = "RainbowMachine";
     nameservers = [ "127.0.0.1" "::1" ];
 
+    firewall.allowedTCPPorts = [
+      25565 # Minecraft
+    ];
+
     networkmanager = {
       enable = true;
       dns = "none";

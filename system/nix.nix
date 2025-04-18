@@ -18,7 +18,7 @@
       experimental-features = "nix-command flakes";
 
       # https://github.com/NixOS/nix/issues/11728
-      download-buffer-size = 524288000;
+      # download-buffer-size = 524288000;
 
       substituters = [
         "https://cache.nixos.org"

@@ -44,6 +44,7 @@ in {
     };
 
     shellAliases = {
+      ssh = "kitty +kitten ssh";
       restart = "shutdown -r now";
       syntax = "bat";
       temperature = "echo $(( $(cat /sys/class/thermal/thermal_zone*/temp) / 1000 )) | sed 's/$/C/'";

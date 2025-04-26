@@ -129,6 +129,12 @@ __setup_case_insensitive_cdpath() {
 
 # Only run in Interactive Prompts
 [[ $- == *i* ]] && {
+  if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
+    ssh () {
+      kitty +kitten ssh "$@"
+    }
+  fi
+
   eval "$(atuin init zsh)"
   eval "$(starship init zsh)"
 

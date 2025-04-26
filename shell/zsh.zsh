@@ -129,9 +129,9 @@ __setup_case_insensitive_cdpath() {
 
 # Only run in Interactive Prompts
 [[ $- == *i* ]] && {
-  if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
+  if [[ "$TERM" == "xterm-kitty" ]]; then
     ssh () {
-      kitty +kitten ssh "$@"
+      kitten ssh --kitten=color_scheme=fairyfloss "$@"
     }
   fi
 

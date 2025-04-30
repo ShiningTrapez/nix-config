@@ -88,7 +88,7 @@ in {
       }
     ];
 
-    initExtra = builtins.readFile ../shell/zsh.zsh;
+    initContent = builtins.readFile ../shell/zsh.zsh;
   };
 
   home.file."${config.home.homeDirectory}/.config/zsh/scripts/" = {

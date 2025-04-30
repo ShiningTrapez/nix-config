@@ -1,7 +1,8 @@
 {...}: {
   programs.lsd = {
     enable = true;
-    enableAliases = true;
+    # Default in home-manager/84d262115e10ad321ef01cd85903d0f5c3ec113f
+    # enableAliases = true;
     settings = {
       blocks = [
         "permission"

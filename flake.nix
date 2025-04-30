@@ -15,7 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    bandithedoge-nur.url = "github:bandithedoge/nur-packages/master?shallow=1";
+    # waterfox-bin-6.5.6 marked as broken
+    bandithedoge-nur.url = "github:bandithedoge/nur-packages/22af3087f8b5dcfc6fd56c15b9a2f512c09dbfdc?shallow=1";
   };
 
   outputs = {

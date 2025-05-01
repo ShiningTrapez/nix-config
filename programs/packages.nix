@@ -4,8 +4,6 @@ in {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [
-    vim-full
-
     bat
     nixpkgs-24.gimp-with-plugins
     nixpkgs-24.blender

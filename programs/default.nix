@@ -10,7 +10,6 @@
     ./kitty.nix
     ./lsd.nix
     ./packages.nix
-    ./ssh.nix
     ./starship.nix
     ./zsh.nix
   ];

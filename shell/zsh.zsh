@@ -107,7 +107,7 @@ __check_directory_for_new_repository() {
       && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]]; then {
         clear
         echo '\n'
-        onefetch --nerd-fonts --no-color-palette -d created -d authors -d contributors -d dependencies
+        onefetch --nerd-fonts --no-color-palette -d created authors contributors dependencies
       }
   fi
 

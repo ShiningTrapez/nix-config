@@ -58,7 +58,7 @@ __steam_game_defs() {
   # https://www.shellcheck.net/wiki/SC2156
   find ~/.local/share/Steam/steamapps -maxdepth 1 -type f -name '*.acf' -exec \
     sh -c "acf \$1 | jq -r '.AppState | {id: .appid, name: .name}'" shell {} \; \
-    | jq -s '. | map(select((.name | test(".*(Proton|Steam Linux|Steamworks).*") | not)))'
+      | jq -s '. | map(select((.name | test(".*(Proton|Steam Linux|Steamworks).*") | not)))'
 }
 
 games() {
@@ -70,9 +70,9 @@ games() {
 game() {
   if [[ $# -eq 0 ]]; then
     SELECTION=$(__steam_game_defs \
-  |   jq -r ".[] | select(.name == \"$(__steam_game_defs \
-    | jq -r 'map(.name) | join("\n")' \
-    | fzf +m --cycle --border --layout=reverse)\") | .id")
+      | jq -r ".[] | select(.name == \"$(__steam_game_defs \
+      | jq -r 'map(.name) | join("\n")' \
+      | fzf +m --cycle --border --layout=reverse)\") | .id")
   else
     SELECTION=$1
   fi
@@ -82,7 +82,7 @@ game() {
 
 _game() {
   _alternative "args:Installed Games:$(__steam_game_defs \
-  | jq -r '"((\(. | map("\(.id)\\:\"\(.name)\"") | join(" "))))"')"
+    | jq -r '"((\(. | map("\(.id)\\:\"\(.name)\"") | join(" "))))"')"
 }
 
 compdef _game game

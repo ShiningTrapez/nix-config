@@ -7,7 +7,7 @@ setopt cdablevars
 
 bindkey '^ ' autosuggest-accept
 
-export PATH=$HOME/bin:$HOME/.config/zsh/scripts:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/bin:$HOME/.config/zsh/scripts:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 export PNPM_HOME=$HOME/bin
 
 # Make 'cdpath' suggestions stand out
@@ -149,14 +149,7 @@ __setup_case_insensitive_cdpath() {
   [[ "$TERM_PROGRAM" != "vscode" \
     && -z $EMACS_VTERM_PATH \
     && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]] && {
-      clear
-
-      # Use Rainbow Version on Rainbow Machine
-      ([[ $(hostname) == "RainbowMachine" ]] \
-        && macchina | lolcat -tp 2.0) || {
-        # TODO: This is terrible
-        macchina | sed "s/RainbowMachine /Zephyrus ──────/g"
-      }
+      macchina | lolcat -tfp 2.0 2> /dev/null
     }
   }
 

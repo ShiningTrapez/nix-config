@@ -63,7 +63,7 @@
 
       custom.rainbow-hostname = {
         description = "Rainbow Hostname for Rainbow Machine";
-        command = "echo \"RainbowMachine\" | lolcat -ftp 0.3";
+        command = "echo \"RainbowMachine\" | lolcat -ftp 0.3 2> /dev/null";
         when = "[ $(hostname) = \"RainbowMachine\" ]";
         shell = "sh";
         format = "@$output";

@@ -11,6 +11,7 @@ in {
     webcamoid
     ungoogled-chromium
     nur.repos.bandithedoge.waterfox-bin
+    microsoft-edge
     protonup-qt
     protontricks
 

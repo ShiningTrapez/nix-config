@@ -118,11 +118,13 @@ __setup_case_insensitive_cdpath() {
   while IFS= read -d ':' -r cdpath_el; do
     # https://stackoverflow.com/questions/2107945/how-to-loop-over-directories-in-linux
     for el in "$cdpath_el"/*/; do
-      BASE_NAME=$(basename "$el")
-      ALIAS_NAME=$(tr -dc 'a-zA-Z0-9' <<< "$BASE_NAME" | tr '[:upper:]' '[:lower:]')
+      if [[ -d "$cdpath_el" ]]; then {
+        BASE_NAME=$(basename "$el")
+        ALIAS_NAME=$(tr -dc 'a-zA-Z0-9' <<< "$BASE_NAME" | tr '[:upper:]' '[:lower:]')
 
-      # shellcheck disable=SC2139
-      [[ "$ALIAS_NAME" != "$BASE_NAME" ]] && alias "$ALIAS_NAME"="cd $el"
+        # shellcheck disable=SC2139
+        [[ "$ALIAS_NAME" != "$BASE_NAME" ]] && alias "$ALIAS_NAME"="cd $el"
+      }; fi
     done
   done < <(printf "%s\n" "$CDPATH")
 }

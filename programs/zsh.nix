@@ -17,6 +17,7 @@ in {
     autocd = true;
     cdpath = [
       "${projects}"
+      "${projects}/Minecraft"
       "${work}"
       "${work}/tv-client/packages"
       "${work}/tv-client/apps"

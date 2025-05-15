@@ -15,6 +15,8 @@ in {
     protonup-qt
     protontricks
 
+    kubectl
+
     imagemagick
     vlc
     curl

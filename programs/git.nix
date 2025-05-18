@@ -146,7 +146,7 @@
     includes = let
       workInfo = {
         user = {
-          name = "Peter Clay Holden Morris-Hind";
+          name = "Sophia Lydia Morris-Hind";
           email = "peter.morris-hind@bbc.co.uk";
           signingkey = "${config.home.homeDirectory}/.ssh/id_github_work.pub";
         };

@@ -9,6 +9,7 @@ in {
     nixpkgs-24.blender
     steam-acf
     webcamoid
+    google-chrome
     ungoogled-chromium
     nur.repos.bandithedoge.waterfox-bin
     microsoft-edge

@@ -16,6 +16,7 @@ in {
     protonup-qt
     protontricks
 
+    zeal
     kubectl
 
     imagemagick

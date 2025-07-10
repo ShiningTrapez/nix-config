@@ -43,6 +43,7 @@ in {
 
     texlive.combined.scheme-full
     prismlauncher
+    jetbrains.idea-community
 
     # (discord-ptb.override {
     # withOpenASAR = true;

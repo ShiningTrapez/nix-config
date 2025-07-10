@@ -9,15 +9,6 @@
       url = "github:nix-community/home-manager/master?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # waterfox-bin-6.5.6 marked as broken
-    # https://github.com/BrowserWorks/Waterfox/issues/3740
-    bandithedoge-nur.url = "github:bandithedoge/nur-packages/22af3087f8b5dcfc6fd56c15b9a2f512c09dbfdc?shallow=1";
   };
 
   outputs = {
@@ -31,12 +22,8 @@
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs.inputs = inputs;
       modules = [
-        ./overlays.nix
         ./hardware/${hostname}.nix
         ./system
-
-        # https://nur.nix-community.org
-        nur.modules.nixos.default
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

@@ -1,17 +1,16 @@
-{ pkgs, inputs, ... }: let
-  nixpkgs-24 = inputs.nixpkgs-24.legacyPackages.x86_64-linux;
+{ pkgs, ... }: let
 in {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [
     bat
-    nixpkgs-24.gimp-with-plugins
-    nixpkgs-24.blender
+    gimp-with-plugins
+    blender
     steam-acf
     webcamoid
     google-chrome
     ungoogled-chromium
-    nur.repos.bandithedoge.waterfox-bin
+    firefox-beta
     microsoft-edge
     protonup-qt
     protontricks

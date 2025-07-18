@@ -14,7 +14,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    nur,
     ...
   } @ inputs: let
     hostname = "RainbowMachine";
@@ -22,6 +21,7 @@
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs.inputs = inputs;
       modules = [
+        ./overlays.nix
         ./hardware/${hostname}.nix
         ./system
 

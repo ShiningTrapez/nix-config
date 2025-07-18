@@ -41,6 +41,8 @@ in {
     hunspell
     hunspellDicts.en_GB-large
 
+    packwiz
+
     texlive.combined.scheme-full
     prismlauncher
     jetbrains.idea-community

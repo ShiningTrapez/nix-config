@@ -4,7 +4,6 @@
   ...
 }: let
   nix-config-dir = "${projects}/nix-config";
-  xdg-config-dir = "${config.home.homeDirectory}/.config";
 
   projects = "${config.home.homeDirectory}/Projects";
   work = "${config.home.homeDirectory}/Work";
@@ -21,9 +20,9 @@ in {
       "${work}"
       "${work}/tv-client/packages"
       "${work}/tv-client/apps"
-      "${xdg-config-dir}"
+      "${config.xdg.configHome}"
     ];
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     autosuggestion.enable = true;
     enableCompletion = true;
 
@@ -52,7 +51,7 @@ in {
       system-temperature = "echo \"CPU: $(temperature)\nGPU: $(gpu-temperature)\"";
       gpu-info = "nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5";
 
-      reload = "source ${xdg-config-dir}/zsh/.zshrc";
+      reload = "source ${config.xdg.configHome}/zsh/.zshrc";
       system-config = "code --wait ${nix-config-dir}";
       system-update-flake = "nix flake update ${nix-config-dir}";
       system-rebuild = "sudo nixos-rebuild switch --impure --flake ${nix-config-dir} && reload";

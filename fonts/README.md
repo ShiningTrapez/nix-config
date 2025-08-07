@@ -1,6 +1,6 @@
 # Fonts
 
-## [Letter-o-matic](./letteromatic/)
+## [Letter-o-matic](https://blambot.com/collections/indie-fonts/products/letter-o-matic)
 
 |Copyright|License|
 |:-:|:-:|
@@ -8,6 +8,5 @@
 
 |Source(s)|
 |:-:|
+|[Blambot](https://blambot.com/collections/indie-fonts/products/letter-o-matic)|
 |[Dafont](https://www.dafont.com/letter-o-matic.font)|
-|[Blambot](https://blambot.com/en-gb)|
-

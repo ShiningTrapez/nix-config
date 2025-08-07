@@ -1,9 +1,25 @@
-{pkgs, lib, ...}: let
-  nerd-fonts = (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
+{pkgs, lib, ...}: with pkgs; let
+  custom = import ../fonts { inherit pkgs; };
+  nerdFonts = (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
 in {
+  environment.systemPackages = [
+    corefonts
+    fontconfig
+  ];
+
   fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true;
+
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["Fira Code"];
+        sansSerif = ["Fira Code"];
+        monospace = ["Fira Code"];
+      };
+      useEmbeddedBitmaps = true;
+    };
 
     packages = with pkgs; [
       lmodern # LaTeX
@@ -12,14 +28,7 @@ in {
       noto-fonts-emoji
       liberation_ttf
       meslo-lgs-nf
-    ] ++ nerd-fonts;
-
-    fontconfig = {
-      defaultFonts = {
-        serif = ["Fira Code"];
-        sansSerif = ["Fira Code"];
-        monospace = ["Fira Code"];
-      };
-    };
+      custom.letteromatic
+    ] ++ nerdFonts;
   };
 }

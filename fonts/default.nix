@@ -1,5 +1,3 @@
-# https://discourse.nixos.org/t/fontconfig-error-no-writable-cache-directories/34447
-
 { pkgs }: with pkgs; let
   dafont = name: hash: stdenvNoCC.mkDerivation {
     pname = name;

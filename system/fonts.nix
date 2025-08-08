@@ -28,6 +28,7 @@ in {
       noto-fonts-emoji
       liberation_ttf
       meslo-lgs-nf
+      custom.gothicpixels
       custom.letteromatic
     ] ++ nerdFonts;
   };

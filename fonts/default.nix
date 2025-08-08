@@ -1,4 +1,4 @@
-{ pkgs }: with pkgs; let
+{ stdenvNoCC, fetchzip }: let
   dafont = name: hash: stdenvNoCC.mkDerivation {
     pname = name;
     version = "1.0";

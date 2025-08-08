@@ -1,5 +1,5 @@
 {pkgs, lib, ...}: with pkgs; let
-  custom = import ../fonts { inherit pkgs; };
+  custom = callPackage ../fonts {};
   nerdFonts = (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
 in {
   environment.systemPackages = [

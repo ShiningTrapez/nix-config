@@ -16,7 +16,9 @@
     ...
   } @ inputs: let
     hostname = "RainbowMachine";
+    system = "x86_64-linux";
   in {
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs.inputs = inputs;
       modules = [

@@ -1,3 +1,9 @@
+# https://github.com/ianthehenry/zsh-autoquoter
+ZAQ_PREFIXES+=('git commit( [^ ]##)# -[^ -]#m' 'ssh( -[^ ]##)# [^ -][^ ]#')
+
+# https://github.com/zsh-users/zsh-syntax-highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=('zaq');
+
 autoload -U add-zsh-hook
 autoload -Uz compinit
 

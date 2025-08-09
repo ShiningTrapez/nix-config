@@ -18,6 +18,7 @@
     extraConfig = {
       alias = {
         a = "add";
+        aa = "add -A";
         b = "branch";
         f = "fetch";
         p = "push";

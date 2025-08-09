@@ -85,6 +85,15 @@ in {
           sha256 = "iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
         };
         file = "zsh-syntax-highlighting.zsh";
+      } {
+        name = "zsh-you-should-use";
+        src = fetchFromGitHub {
+          owner = "MichaelAquilina";
+          repo = "zsh-you-should-use";
+          rev = "1.10.0";
+          sha256 = "sha256-dG6E6cOKu2ZvtkwxMXx/op3rbevT1QSOQTgw//7GmSk=";
+        };
+        file = "you-should-use.plugin.zsh";
       }
     ];
 

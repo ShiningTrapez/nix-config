@@ -1,3 +1,17 @@
+# Automatically remove duplicates
+typeset -U path cdpath fpath manpath
+
+setopt share_history
+setopt interactivecomments
+setopt completeinword
+setopt hash_list_all
+setopt notify
+setopt nonomatch
+setopt extended_history
+setopt append_history
+setopt prompt_subst
+setopt noflowcontrol
+
 # https://github.com/ianthehenry/zsh-autoquoter
 ZAQ_PREFIXES+=(
   'git commit( [^ ]##)# -[^ -]#m'

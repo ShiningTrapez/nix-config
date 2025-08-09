@@ -14,6 +14,10 @@ $ nix flake update .
 
 # Rebuild System
 $ sudo nixos-rebuild switch --impure --flake .
+# Or
+$ nixos apply .
+# Or
+$ nixos rebuild
 
 # Format
 $ nix fmt

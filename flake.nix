@@ -8,11 +8,17 @@
       url = "github:nix-community/home-manager/master?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-cli = {
+      url = "github:nix-community/nixos-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    nixos-cli,
     ...
   } @ inputs: let
     hostname = "RainbowMachine";
@@ -25,6 +31,8 @@
         ./overlays.nix
         ./hardware/${hostname}.nix
         ./system
+
+        nixos-cli.nixosModules.nixos-cli
 
         home-manager.nixosModules.home-manager
         {

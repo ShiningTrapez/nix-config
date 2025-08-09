@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.starship = {
     enable = true;
     settings = {
@@ -93,7 +93,7 @@
       };
 
       java = {
-        style ="dimmed red";
+        style = "dimmed red";
         format = " [$symbol($version)]($style)";
       };
 
@@ -113,7 +113,7 @@
       };
 
       nodejs = {
-        style ="dimmed green";
+        style = "dimmed green";
         format = " [$symbol($version)]($style)";
       };
     };

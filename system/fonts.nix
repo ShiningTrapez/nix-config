@@ -1,6 +1,11 @@
-{pkgs, lib, ...}: with pkgs; let
+{
+  pkgs,
+  lib,
+  ...
+}:
+with pkgs; let
   custom = callPackage ../fonts {};
-  nerdFonts = (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
+  nerdFonts = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 in {
   environment.systemPackages = [
     corefonts
@@ -21,15 +26,17 @@ in {
       useEmbeddedBitmaps = true;
     };
 
-    packages = with pkgs; [
-      lmodern # LaTeX
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      liberation_ttf
-      meslo-lgs-nf
-      custom.gothicpixels
-      custom.letteromatic
-    ] ++ nerdFonts;
+    packages = with pkgs;
+      [
+        lmodern # LaTeX
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-emoji
+        liberation_ttf
+        meslo-lgs-nf
+        custom.gothicpixels
+        custom.letteromatic
+      ]
+      ++ nerdFonts;
   };
 }

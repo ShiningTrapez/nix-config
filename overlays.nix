@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   nixpkgs.overlays = [
     (final: prev: {
       # https://github.com/packwiz/packwiz/pull/326

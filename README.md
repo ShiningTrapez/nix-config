@@ -15,6 +15,6 @@ $ nix flake update .
 # Rebuild System
 $ sudo nixos-rebuild switch --impure --flake .
 
-# Reload Shell
-$ source ~/.config/zsh/.zshrc
+# Format
+$ nix fmt
 ```

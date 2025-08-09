@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./atuin.nix
     ./copyq.nix

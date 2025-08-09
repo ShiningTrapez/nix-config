@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./activation.nix
     ./packages.nix

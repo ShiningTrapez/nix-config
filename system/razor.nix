@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   hardware.openrazer.enable = true;
   environment.systemPackages = with pkgs; [
     openrazer-daemon
@@ -6,6 +6,6 @@
   ];
 
   users.users.sophia = {
-    extraGroups = [ "openrazer" ];
+    extraGroups = ["openrazer"];
   };
 }

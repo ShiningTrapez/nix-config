@@ -1,5 +1,9 @@
 # https://github.com/ianthehenry/zsh-autoquoter
-ZAQ_PREFIXES+=('git commit( [^ ]##)# -[^ -]#m' 'ssh( -[^ ]##)# [^ -][^ ]#')
+ZAQ_PREFIXES+=(
+  'git commit( [^ ]##)# -[^ -]#m'
+  'git all'
+  'ssh( -[^ ]##)# [^ -][^ ]#'
+)
 
 # https://github.com/zsh-users/zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=('zaq');

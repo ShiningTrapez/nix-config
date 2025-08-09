@@ -32,7 +32,7 @@
 
         edit = "commit --amend --only";
         ff = "merge --ff-only";
-        commitall = "!acpp() { git add . && git commit -aqm \"$1\" &&
+        all = "!acpp() { git add . && git commit -aqm \"$1\" &&
           git pull -q --no-progress && git push -q; }; acpp";
         undo = "reset --hard @{1}";
 

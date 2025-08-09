@@ -1,4 +1,4 @@
-{...}: {
+{ pkgs, ...}: {
   # man configuration.nix / https://nixos.org/nixos/options.html
   system.stateVersion = "23.11";
 
@@ -37,12 +37,21 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    nix-output-monitor
+  ];
+
   services.nixos-cli = {
     enable = true;
     config = {
+      # TODO: Parameterize nix-config location
+      config_location = "/home/sophia/Projects/nix-config";
+      apply = {
+        use_nom = true;
+        use_git_commit_msg = true;
+      };
       aliases = {
-        # TODO: Parameterize nix-config location
-        rebuild = ["apply" "/home/sophia/Projects/nix-config" "-y"];
+        rebuild = ["apply" "-y"];
       };
     };
   };

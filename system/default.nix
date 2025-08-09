@@ -10,7 +10,6 @@
     ./nix.nix
     ./other.nix
     ./packages.nix
-    ./razor.nix
     ./sleep.nix
     ./sound.nix
     ./sddm

@@ -41,7 +41,8 @@
     enable = true;
     config = {
       aliases = {
-        rebuild = ["apply" "."];
+        # TODO: Parameterize nix-config location
+        rebuild = ["apply" "/home/sophia/Projects/nix-config" "-y"];
       };
     };
   };

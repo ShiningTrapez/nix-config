@@ -54,7 +54,7 @@ in {
       reload = "source ${config.xdg.configHome}/zsh/.zshrc";
       system-config = "code --wait ${nix-config-dir}";
       system-update-flake = "nix flake update ${nix-config-dir}";
-      system-rebuild = "sudo nixos-rebuild switch --impure --flake ${nix-config-dir} && reload";
+      system-rebuild = "nixos rebuild && reload";
       system-upgrade = "system-update-flake && system-rebuild && system-clean";
       clean = "nix-collect-garbage -d";
       system-clean = "sudo clean-generations 2 0 system && clean";

@@ -10,6 +10,28 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  boot.kernelParams = [
+    "noibrs"
+    "noibpb"
+    "nopti"
+    "nospectre_v2"
+    "nospectre_v1"
+    "l1tf=off"
+    "nospec_store_bypass_disable"
+    "no_stf_barrier"
+    "mds=off"
+    "tsx=on"
+    "tsx_async_abort=off"
+    "mitigations=off"
+    "sysrq_always_enabled=1"
+    "quiet"
+    "loglevel=3"
+    "rd.systemd.show_status=auto"
+    "rd.udev.log_level=3"
+    "kernel.nmi_watchdog=0"
+    "nowatchdog"
+  ];
+
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"
@@ -45,5 +67,6 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.enableAllFirmware = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

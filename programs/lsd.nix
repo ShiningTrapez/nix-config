@@ -1,8 +1,8 @@
 {...}: {
   programs.lsd = {
     enable = true;
-    # Default in home-manager/84d262115e10ad321ef01cd85903d0f5c3ec113f
-    # enableAliases = true;
+    enableZshIntegration = true;
+
     settings = {
       blocks = [
         "permission"

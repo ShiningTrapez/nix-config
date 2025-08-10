@@ -51,7 +51,6 @@
         ./hardware/${hostname}.nix
         ./config
         ./system
-        ./fonts
 
         nixos-cli.nixosModules.nixos-cli
 

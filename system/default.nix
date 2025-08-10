@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./fonts
     ./packages.nix
     ./boot.nix
     ./fonts.nix

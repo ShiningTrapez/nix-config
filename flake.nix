@@ -30,7 +30,7 @@
       modules = [
         ./overlays.nix
         ./hardware/${hostname}.nix
-        ./options.nix
+        ./config
         ./system
 
         nixos-cli.nixosModules.nixos-cli
@@ -61,8 +61,7 @@
             home.homeDirectory = homeDir;
 
             imports = [
-              ./programs
-              ./config
+              ./modules
             ];
 
             programs.home-manager.enable = true;

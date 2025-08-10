@@ -1,4 +1,8 @@
-{lib, config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) mkOption types;
 in {
   options = {
@@ -18,18 +22,5 @@ in {
       type = types.path;
       description = "Location of the System Flake.";
     };
-  };
-
-  config = {
-    user = "sophia";
-    osFlakeLocation = "${config.homeDir}/Projects/nix-config";
-
-    locale = {
-      locale = "en_GB.UTF-8";
-      timeZone = "Europe/London";
-      keyMap = "uk";
-    };
-
-    razor.enable = false;
   };
 }

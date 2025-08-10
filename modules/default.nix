@@ -2,6 +2,7 @@
   imports = [
     ./atuin.nix
     ./copyq.nix
+    ./dconf.nix
     ./direnv.nix
     ./editorconfig.nix
     ./emacs.nix

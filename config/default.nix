@@ -1,5 +1,6 @@
 {...}: {
   imports = [
-    ./dconf.nix
+    ./config.nix
+    ./options.nix
   ];
 }

@@ -1,4 +1,8 @@
-{lib, config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) genAttrs mkOption types;
   locale = config.locale.locale;
 in {
@@ -31,16 +35,16 @@ in {
     i18n.defaultLocale = locale;
 
     i18n.extraLocaleSettings = genAttrs [
-    "LC_ADDRESS"
-    "LC_IDENTIFICATION"
-    "LC_MEASUREMENT"
-    "LC_MONETARY"
-    "LC_NAME"
-    "LC_NUMERIC"
-    "LC_PAPER"
-    "LC_TELEPHONE"
-    "LC_TIME"
-  ] (_: locale);
+      "LC_ADDRESS"
+      "LC_IDENTIFICATION"
+      "LC_MEASUREMENT"
+      "LC_MONETARY"
+      "LC_NAME"
+      "LC_NUMERIC"
+      "LC_PAPER"
+      "LC_TELEPHONE"
+      "LC_TIME"
+    ] (_: locale);
 
     console.keyMap = config.locale.keyMap;
   };

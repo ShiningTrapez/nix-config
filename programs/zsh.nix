@@ -48,7 +48,7 @@ in {
       syntax = "bat";
       temperature = "echo $(( $(cat /sys/class/thermal/thermal_zone*/temp) / 1000 )) | sed 's/$/C/'";
       gpu-temperature = "nvidia-smi --query-gpu=temperature.gpu --format csv | tail -n1 | sed 's/$/C/'";
-      system-temperature = "echo \"CPU: $(temperature)\nGPU: $(gpu-temperature)\"";
+      system-temperature = "echo -e \"\\033[0;31mCPU: $(temperature)\\033[0m\n\\033[0;32mGPU: $(gpu-temperature)\\033[0m\"";
       gpu-info = "nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5";
 
       reload = "source ${config.xdg.configHome}/zsh/.zshrc";

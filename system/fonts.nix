@@ -4,7 +4,6 @@
   ...
 }:
 with pkgs; let
-  custom = callPackage ../fonts {};
   nerdFonts = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 in {
   environment.systemPackages = [
@@ -34,8 +33,6 @@ in {
         noto-fonts-emoji
         liberation_ttf
         meslo-lgs-nf
-        custom.gothicpixels
-        custom.letteromatic
       ]
       ++ nerdFonts;
   };

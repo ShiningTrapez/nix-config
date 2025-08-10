@@ -9,4 +9,5 @@
   };
 
   razor.enable = false;
+  fonts.all.enable = true;
 }

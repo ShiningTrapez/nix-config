@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./activation.nix
     ./packages.nix
     ./boot.nix
     ./fonts.nix

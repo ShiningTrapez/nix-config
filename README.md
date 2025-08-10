@@ -7,7 +7,8 @@
 
 </div>
 
-> [!WARNING] Work in Progress.
+> [!WARNING]
+> Work in Progress.
 
 
 My personal NixOS config - not guaranteed to use "Best Practices"

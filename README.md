@@ -7,6 +7,11 @@
 
 </div>
 
+> \[!WARNING] Work in Progress.
+
+
+My personal NixOS config - not guaranteed to use "Best Practices"
+
 ## Use
 ```bash
 # Update Flake Inputs
@@ -14,11 +19,15 @@ $ nix flake update .
 
 # Rebuild System
 $ sudo nixos-rebuild switch --impure --flake .
-# Or
+
+# After install
 $ nixos apply .
 # Or
 $ nixos rebuild
 
 # Format
 $ nix fmt
+
+# Shell
+$ nix develop
 ```

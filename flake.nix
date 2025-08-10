@@ -36,17 +36,24 @@
         nixos-cli.nixosModules.nixos-cli
 
         home-manager.nixosModules.home-manager
-        {
+
+        ({
+          config,
+          inputs,
+          ...
+        }: let
+          user = config.user;
+        in {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
 
           home-manager.extraSpecialArgs.inputs = inputs;
-          home-manager.users.sophia = {
+          home-manager.users."${user}" = {
             home.stateVersion = "23.11";
 
-            home.username = "sophia";
-            home.homeDirectory = "/home/sophia";
+            home.username = user;
+            home.homeDirectory = "/home/${user}";
 
             imports = [
               ./programs
@@ -55,7 +62,7 @@
 
             programs.home-manager.enable = true;
           };
-        }
+        })
       ];
     };
   };

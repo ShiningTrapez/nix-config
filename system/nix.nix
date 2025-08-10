@@ -48,8 +48,7 @@
   services.nixos-cli = {
     enable = true;
     config = {
-      # TODO: Parameterize nix-config location
-      config_location = "/home/${config.user}/Projects/nix-config";
+      config_location = config.osFlakeLocation;
       apply = {
         use_nom = true;
         use_git_commit_msg = true;

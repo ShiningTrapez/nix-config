@@ -43,6 +43,7 @@
           ...
         }: let
           user = config.user;
+          homeDir = config.homeDir;
         in {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -57,7 +58,7 @@
             home.stateVersion = "23.11";
 
             home.username = user;
-            home.homeDirectory = "/home/${user}";
+            home.homeDirectory = homeDir;
 
             imports = [
               ./programs

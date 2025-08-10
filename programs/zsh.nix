@@ -2,12 +2,12 @@
   config,
   pkgs,
   lib,
+  nixosConfig,
   ...
 }: let
   projects = "${config.home.homeDirectory}/Projects";
   work = "${config.home.homeDirectory}/Work";
   work-cert = "${config.home.homeDirectory}/morrip87.pem";
-  nix-config-dir = "${projects}/nix-config";
 in {
   home.sessionVariables = {
     EDITOR = "code --wait";
@@ -52,8 +52,8 @@ in {
       gpu-info = "nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5";
 
       reload = "source ${config.xdg.configHome}/zsh/.zshrc";
-      system-config = "code --wait ${nix-config-dir}";
-      system-update-flake = "nix flake update ${nix-config-dir}";
+      system-config = "code --wait ${nixosConfig.osFlakeLocation}";
+      system-update-flake = "nix flake update ${nixosConfig.osFlakeLocation}";
       system-rebuild = "nixos rebuild && reload";
       system-upgrade = "system-update-flake && system-rebuild && system-clean";
       clean = "nix-collect-garbage -d";

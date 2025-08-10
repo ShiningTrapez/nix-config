@@ -30,6 +30,7 @@
       modules = [
         ./overlays.nix
         ./hardware/${hostname}.nix
+        ./options.nix
         ./system
 
         nixos-cli.nixosModules.nixos-cli

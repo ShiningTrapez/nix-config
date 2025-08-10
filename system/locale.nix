@@ -1,21 +1,47 @@
-{...}: let
-  locale = "en_GB.UTF-8";
+{lib, config, ...}: let
+  inherit (lib) genAttrs mkOption types;
+  locale = config.locale.locale;
 in {
-  time.timeZone = "Europe/London";
+  options.locale = {
+    locale = mkOption {
+      type = types.str;
+      default = "en_GB.UTF-8";
+      description = "Default locale used by the System and Programs.";
+      example = "en_US.UTF-8";
+    };
 
-  i18n.defaultLocale = locale;
+    timeZone = mkOption {
+      type = types.str;
+      default = "Europe/London";
+      description = "Default System Timezone.";
+      example = "UTC";
+    };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = locale;
-    LC_IDENTIFICATION = locale;
-    LC_MEASUREMENT = locale;
-    LC_MONETARY = locale;
-    LC_NAME = locale;
-    LC_NUMERIC = locale;
-    LC_PAPER = locale;
-    LC_TELEPHONE = locale;
-    LC_TIME = locale;
+    keyMap = mkOption {
+      type = types.str;
+      default = "uk";
+      description = "Console Keymap.";
+      example = "us";
+    };
   };
 
-  console.keyMap = "uk";
+  config = {
+    time.timeZone = config.locale.timeZone;
+
+    i18n.defaultLocale = locale;
+
+    i18n.extraLocaleSettings = genAttrs [
+    "LC_ADDRESS"
+    "LC_IDENTIFICATION"
+    "LC_MEASUREMENT"
+    "LC_MONETARY"
+    "LC_NAME"
+    "LC_NUMERIC"
+    "LC_PAPER"
+    "LC_TELEPHONE"
+    "LC_TIME"
+  ] (_: locale);
+
+    console.keyMap = config.locale.keyMap;
+  };
 }

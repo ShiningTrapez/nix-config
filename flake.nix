@@ -15,18 +15,38 @@
     };
   };
 
-  outputs = {
+  outputs = inputs @ {
+    self,
     nixpkgs,
     home-manager,
     nixos-cli,
     ...
-  } @ inputs: let
+  }: let
+    lib = nixpkgs.lib;
+    supportedSystems = ["x86_64-linux"];
+    forAllSystems = f: lib.genAttrs supportedSystems (system: f system);
     hostname = "RainbowMachine";
-    system = "x86_64-linux";
   in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            alejandra
+            statix
+            deadnix
+          ];
+        };
+      }
+    );
+
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-      specialArgs.inputs = inputs;
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+
       modules = [
         ./overlays.nix
         ./hardware/${hostname}.nix
@@ -38,36 +58,7 @@
 
         home-manager.nixosModules.home-manager
 
-        ({
-          config,
-          inputs,
-          ...
-        }: let
-          user = config.user;
-          homeDir = config.homeDir;
-        in {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "bak";
-
-          home-manager.extraSpecialArgs.inputs = {
-            inherit inputs;
-            nixosConfig = config;
-          };
-
-          home-manager.users."${user}" = {
-            home.stateVersion = "23.11";
-
-            home.username = user;
-            home.homeDirectory = homeDir;
-
-            imports = [
-              ./modules
-            ];
-
-            programs.home-manager.enable = true;
-          };
-        })
+        ./modules
       ];
     };
   };

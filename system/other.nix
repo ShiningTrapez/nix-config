@@ -1,4 +1,8 @@
-{pkgs, ...}:
+{
+  pkgs,
+  config,
+  ...
+}:
 with pkgs; {
   programs.zsh.enable = true;
   programs.xfconf.enable = true;
@@ -40,10 +44,10 @@ with pkgs; {
     gnome-settings-daemon
   ];
 
-  users.users.sophia = {
+  users.users."${config.user}" = {
     shell = zsh;
     isNormalUser = true;
-    description = "Sophia";
+    description = lib.toSentenceCase config.user;
     extraGroups = [
       "networkmanager"
       "wheel"

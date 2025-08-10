@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # man configuration.nix / https://nixos.org/nixos/options.html
   system.stateVersion = "23.11";
 
@@ -45,7 +49,7 @@
     enable = true;
     config = {
       # TODO: Parameterize nix-config location
-      config_location = "/home/sophia/Projects/nix-config";
+      config_location = "/home/${config.user}/Projects/nix-config";
       apply = {
         use_nom = true;
         use_git_commit_msg = true;

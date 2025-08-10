@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  nixosConfig,
   ...
 }: {
   home.packages = with pkgs; [
@@ -17,7 +18,7 @@
       };
 
       "apps/seahorse/listing" = {
-        keyrings-selected = ["openssh:///home/sophia/.ssh"];
+        keyrings-selected = ["openssh:///home/${nixosConfig.user}/.ssh"];
       };
 
       "org/gnome/desktop/a11y/applications" = {

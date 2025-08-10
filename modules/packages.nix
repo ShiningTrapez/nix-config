@@ -1,5 +1,4 @@
-{pkgs, ...}: let
-in {
+{pkgs, ...}: {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [

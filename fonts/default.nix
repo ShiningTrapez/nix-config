@@ -13,7 +13,7 @@
       version = "1.0";
       src = fetchzip {
         url = "https://dl.dafont.com/dl/?f=${name}";
-        hash = hash;
+        inherit hash;
         extension = "zip";
         stripRoot = false;
       };
@@ -38,7 +38,7 @@
     (
       name:
         (config.fonts.all.enable or false)
-        || (((builtins.getAttr name config.fonts).enable) || false)
+        || ((builtins.getAttr name config.fonts).enable || false)
     )
     (builtins.attrNames fontPkgs);
 

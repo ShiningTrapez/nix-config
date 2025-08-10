@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   nixpkgs.overlays = [
-    (final: prev: {
+    (_: prev: {
       # https://github.com/packwiz/packwiz/pull/326
-      packwiz = prev.packwiz.overrideAttrs (old: {
+      packwiz = prev.packwiz.overrideAttrs (_: {
         src = pkgs.fetchFromGitHub {
           owner = "Furglitch";
           repo = "packwiz";

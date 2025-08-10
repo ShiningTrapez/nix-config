@@ -16,15 +16,14 @@
   };
 
   outputs = inputs @ {
-    self,
     nixpkgs,
     home-manager,
     nixos-cli,
     ...
   }: let
-    lib = nixpkgs.lib;
+    inherit (nixpkgs) lib;
     supportedSystems = ["x86_64-linux"];
-    forAllSystems = f: lib.genAttrs supportedSystems (system: f system);
+    forAllSystems = f: lib.genAttrs supportedSystems f;
     hostname = "RainbowMachine";
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);

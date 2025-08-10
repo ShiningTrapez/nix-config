@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # Link Bash to /bin/bash
   system.activationScripts.binbash = {
     deps = ["binsh"];

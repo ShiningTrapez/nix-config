@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib) genAttrs mkOption types;
-  locale = config.locale.locale;
+  inherit (config.locale) locale;
 in {
   options.locale = {
     locale = mkOption {

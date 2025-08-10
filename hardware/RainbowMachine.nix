@@ -7,39 +7,44 @@
 }: {
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  boot.kernelParams = [
-    "noibrs"
-    "noibpb"
-    "nopti"
-    "nospectre_v2"
-    "nospectre_v1"
-    "l1tf=off"
-    "nospec_store_bypass_disable"
-    "no_stf_barrier"
-    "mds=off"
-    "tsx=on"
-    "tsx_async_abort=off"
-    "mitigations=off"
-    "sysrq_always_enabled=1"
-    "quiet"
-    "loglevel=3"
-    "rd.systemd.show_status=auto"
-    "rd.udev.log_level=3"
-    "kernel.nmi_watchdog=0"
-    "nowatchdog"
-  ];
+  boot = {
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
 
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "usb_storage"
-    "usbhid"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [];
+    kernelParams = [
+      "noibrs"
+      "noibpb"
+      "nopti"
+      "nospectre_v2"
+      "nospectre_v1"
+      "l1tf=off"
+      "nospec_store_bypass_disable"
+      "no_stf_barrier"
+      "mds=off"
+      "tsx=on"
+      "tsx_async_abort=off"
+      "mitigations=off"
+      "sysrq_always_enabled=1"
+      "quiet"
+      "loglevel=3"
+      "rd.systemd.show_status=auto"
+      "rd.udev.log_level=3"
+      "kernel.nmi_watchdog=0"
+      "nowatchdog"
+    ];
+
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "ahci"
+      "usb_storage"
+      "usbhid"
+      "sd_mod"
+    ];
+
+    initrd.kernelModules = [];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0e8f0138-f35a-4a9f-87a8-e50f6be5b4ef";
@@ -57,16 +62,8 @@
     }
   ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp68s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp70s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.enableAllFirmware = true;
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    enableAllFirmware = true;
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
 }

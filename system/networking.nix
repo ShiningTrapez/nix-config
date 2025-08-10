@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) mkDefault;
   # echo | openssl s_client -connect '1.1.1.1:853' 2>/dev/null \
   # | openssl x509 -pubkey -noout \
   # | openssl pkey -pubin -outform der \
@@ -9,6 +14,7 @@ in {
   networking = {
     hostName = "RainbowMachine";
     nameservers = ["127.0.0.1" "::1"];
+    useDHCP = mkDefault true;
 
     firewall.allowedTCPPorts = [
       25565 # Minecraft

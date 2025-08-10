@@ -1,4 +1,4 @@
-{...}:
+_:
 # Disable Sleep
 {
   powerManagement.enable = false;

@@ -59,7 +59,7 @@ in {
       clean = "nix-collect-garbage -d";
       system-clean = "sudo clean-generations 2 0 system && clean";
 
-      tree = "${pkgs.lsd}/bin/lsd --tree";
+      tree = "lt";
       fix-audio = "systemctl --user restart pipewire.service";
       fix-internet = "sudo systemctl restart NetworkManager";
       back = "cd $OLD_PWD";

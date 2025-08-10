@@ -114,7 +114,7 @@ in {
   };
 
   home.file."${config.home.homeDirectory}/.config/zsh/scripts/" = {
-    source = ../../scripts;
+    source = ./scripts;
     recursive = true;
   };
 }

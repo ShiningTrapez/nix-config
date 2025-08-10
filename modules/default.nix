@@ -36,7 +36,7 @@ in {
         ./lsd.nix
         ./packages.nix
         ./starship.nix
-        ./zsh.nix
+        ./zsh
       ];
 
       programs.home-manager.enable = true;

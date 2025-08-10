@@ -110,11 +110,11 @@ in {
       }
     ];
 
-    initContent = lib.mkAfter (builtins.readFile ../shell/zsh.zsh);
+    initContent = lib.mkAfter (builtins.readFile ./zsh.zsh);
   };
 
   home.file."${config.home.homeDirectory}/.config/zsh/scripts/" = {
-    source = ../scripts;
+    source = ../../scripts;
     recursive = true;
   };
 }

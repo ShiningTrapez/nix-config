@@ -66,6 +66,8 @@ in {
       work = "cd ${work}";
       projects = "cd ${projects}";
 
+      g = "git";
+
       # Workaround for non FHS Patched Binaries installed by FNM
       # TODO: Use nix-ld
       npm = "steam-run npm";

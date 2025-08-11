@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption;
-  inherit (pkgs) stdenvNoCC fetchzip;
+  inherit (pkgs) fetchzip stdenvNoCC;
 
   dafont = name: hash:
     stdenvNoCC.mkDerivation {
@@ -18,14 +18,7 @@
         stripRoot = false;
       };
 
-      installPhase = ''
-        runHook preInstall
-
-        mkdir -p $out/share/fonts/truetype/
-        cp -r $src/*.ttf $out/share/fonts/truetype/
-
-        runHook postInstall
-      '';
+      installPhase = builtins.readFile ./fontInstall.sh;
     };
 
   fontPkgs = {

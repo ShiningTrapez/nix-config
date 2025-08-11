@@ -20,3 +20,14 @@
 |Source(s)|
 |:-:|
 |[Dafont](https://www.dafont.com/gothicpixels.font)|
+
+## [Homestuck Fonts](https://homestuck.net/resources/fonts/)
+
+|Copyright|License|
+|:-:|:-:|
+> [!CAUTION]
+Unknown
+
+|Source(s)|
+|:-:|
+|[Homestuck](https://homestuck.net/resources/fonts/)|

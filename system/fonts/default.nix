@@ -18,7 +18,11 @@
         stripRoot = false;
       };
 
-      installPhase = builtins.readFile ./fontInstall.sh;
+      installPhase = ''
+        runHook preInstall;
+        . ${./fontInstall.sh};
+        runHook postInstall
+      '';
     };
 
   fontPkgs = {

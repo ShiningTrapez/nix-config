@@ -11,8 +11,6 @@ copy_fonts() {
 
 fontDir="${out:?}/share/fonts"
 
-runHook preInstall
-
 mkdir -p "$fontDir/truetype" "$fontDir/opentype" "$fontDir/type1" "$fontDir/pcf" "$fontDir/bdf"
 
 # TrueType (TTF, TTC)
@@ -27,5 +25,3 @@ copy_fonts "$fontDir/type1" '*.pfb' '*.pfa' '*.afm'
 # Bitmap (PCF, BDF)
 copy_fonts "$fontDir/pcf" '*.pcf' '*.pcf.gz'
 copy_fonts "$fontDir/bdf" '*.bdf' '*.bdf.gz'
-
-runHook postInstall

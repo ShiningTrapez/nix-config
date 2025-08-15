@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   boot = {
-    # plymouth = {
-    #   enable = true;
-    #   theme = "seal_3";
-    #   themePackages = with pkgs; [
-    #     (adi1090x-plymouth-themes.override {
-    #       selected_themes = [ "seal_3" ];
-    #     })
-    #   ];
-    # };
+    plymouth = {
+      enable = true;
+      theme = "seal_3";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "seal_3" ];
+        })
+      ];
+    };
 
     tmp.cleanOnBoot = true;
 

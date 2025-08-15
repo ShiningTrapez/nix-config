@@ -21,13 +21,12 @@
 |:-:|
 |[Dafont](https://www.dafont.com/gothicpixels.font)|
 
-## [Homestuck Fonts](https://homestuck.net/resources/fonts/)
+## [Handwriting Draft](https://www.dafont.com/handwriting-draft.font)
 
 |Copyright|License|
 |:-:|:-:|
-> [!CAUTION]
-Unknown
+|`(C) Fonts Cafe`|Free for Personal Use|
 
 |Source(s)|
 |:-:|
-|[Homestuck](https://homestuck.net/resources/fonts/)|
+|[Dafont](https://www.dafont.com/handwriting-draft.font)|

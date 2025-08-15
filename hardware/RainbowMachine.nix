@@ -13,37 +13,17 @@
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
 
-    kernelParams = [
-      "noibrs"
-      "noibpb"
-      "nopti"
-      "nospectre_v2"
-      "nospectre_v1"
-      "l1tf=off"
-      "nospec_store_bypass_disable"
-      "no_stf_barrier"
-      "mds=off"
-      "tsx=on"
-      "tsx_async_abort=off"
-      "mitigations=off"
-      "sysrq_always_enabled=1"
-      "quiet"
-      "loglevel=3"
-      "rd.systemd.show_status=auto"
-      "rd.udev.log_level=3"
-      "kernel.nmi_watchdog=0"
-      "nowatchdog"
-    ];
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
 
-    initrd.availableKernelModules = [
-      "xhci_pci"
-      "ahci"
-      "usb_storage"
-      "usbhid"
-      "sd_mod"
-    ];
-
-    initrd.kernelModules = [];
+      kernelModules = [];
+    };
   };
 
   fileSystems."/" = {

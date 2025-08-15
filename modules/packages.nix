@@ -59,5 +59,10 @@
     grim
     slurp
     swappy
+
+    zed-editor
+
+    # https://discourse.nixos.org/t/issue-building-linux-kernel-modules-after-flake-update/62322/15
+    nixVersions.latest
   ];
 }

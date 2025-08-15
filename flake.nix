@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable?shallow=1";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable?shallow=1";
 
     home-manager = {
       url = "github:nix-community/home-manager/master?shallow=1";
@@ -19,6 +20,7 @@
     nixpkgs,
     home-manager,
     nixos-cli,
+    chaotic,
     ...
   }: let
     inherit (nixpkgs) lib;
@@ -51,6 +53,8 @@
         ./hardware/${hostname}.nix
         ./config
         ./system
+
+        chaotic.nixosModules.default
 
         nixos-cli.nixosModules.nixos-cli
 

@@ -37,8 +37,6 @@
       timeout = 0;
     };
 
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
-
-  services.scx.enable = true;
 }

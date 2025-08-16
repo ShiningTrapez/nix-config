@@ -1,6 +1,5 @@
-{config, ...}: {
+{ ... }: {
   user = "sophia";
-  osFlakeLocation = "${config.homeDir}/Projects/nix-config";
 
   locale = {
     locale = "en_GB.UTF-8";

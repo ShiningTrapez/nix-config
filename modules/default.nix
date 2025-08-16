@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  osFlakePath,
   ...
 }: let
   inherit (config) homeDir user;
@@ -12,9 +13,13 @@ in {
     useUserPackages = true;
     backupFileExtension = "bak";
 
-    extraSpecialArgs.inputs = {
-      inherit inputs;
-      nixosConfig = config;
+    extraSpecialArgs= {
+      inherit osFlakePath;
+
+      inputs = {
+        inherit inputs;
+        nixosConfig = config;
+      };
     };
 
     users."${user}" = {

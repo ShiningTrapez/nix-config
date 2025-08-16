@@ -1,6 +1,6 @@
 {
   pkgs,
-  config,
+  osFlakePath,
   ...
 }: {
   # man configuration.nix / https://nixos.org/nixos/options.html
@@ -48,7 +48,7 @@
   services.nixos-cli = {
     enable = true;
     config = {
-      config_location = config.osFlakeLocation;
+      config_location = toString osFlakePath;
       apply = {
         use_nom = true;
         use_git_commit_msg = true;

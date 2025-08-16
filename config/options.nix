@@ -17,10 +17,5 @@ in {
       defaultText = ''"/home/${config.user}"'';
       description = "Home directory; defaults to /home/<user>.";
     };
-
-    osFlakeLocation = mkOption {
-      type = types.path;
-      description = "Location of the System Flake.";
-    };
   };
 }

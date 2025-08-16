@@ -1,5 +1,5 @@
-{ pkgs, ... }: let
-  vicinae = pkgs.callPackage ./vicinae.nix { };
+{pkgs, ...}: let
+  vicinae = pkgs.callPackage ./vicinae.nix {};
 in {
   home.packages = with pkgs; [
     vicinae
@@ -13,7 +13,7 @@ in {
     };
 
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = ["default.target"];
     };
 
     Service = {

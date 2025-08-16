@@ -40,19 +40,25 @@ in {
     description = "Disable CPU Security mitigations for Performance (insecure).";
   };
 
-  config.boot = {
-    tmp.cleanOnBoot = true;
-    initrd.verbose = false;
-    consoleLogLevel = 3;
+  config = {
+    warnings = lib.mkIf config.performance.insecureDisableMitigations [
+      "CPU mitigations disabled (performance.insecureDisableMitigations)."
+    ];
 
-    kernelParams = baseParams ++ optionals config.performance.insecureDisableMitigations mitigationParams;
+    boot = {
+      tmp.cleanOnBoot = true;
+      initrd.verbose = false;
+      consoleLogLevel = 3;
 
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      timeout = 0;
+      kernelParams = baseParams ++ optionals config.performance.insecureDisableMitigations mitigationParams;
+
+      loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+        timeout = 0;
+      };
+
+      kernelPackages = pkgs.linuxPackages_xanmod_latest;
     };
-
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 }

@@ -58,6 +58,8 @@ with pkgs; {
       adwaita-icon-theme
       gnome-tweaks
       gnomeExtensions.appindicator
+
+      wl-clipboard
     ];
   };
 

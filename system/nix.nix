@@ -48,7 +48,7 @@
   services.nixos-cli = {
     enable = true;
     config = {
-      config_location = toString osFlakePath;
+      config_location = osFlakePath;
       apply = {
         use_nom = true;
         use_git_commit_msg = true;

@@ -52,8 +52,8 @@ in {
       gpu-info = "nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5";
 
       reload = "source ${config.xdg.configHome}/zsh/.zshrc";
-      system-config = "code --wait ${toString osFlakePath}";
-      system-update-flake = "nix flake update ${toString osFlakePath}";
+      system-config = "code --wait ${osFlakePath}";
+      system-update-flake = "nix flake update ${osFlakePath}";
       system-rebuild = "nixos rebuild && reload";
       system-upgrade = "system-update-flake && system-rebuild && system-clean";
       clean = "nix-collect-garbage -d";

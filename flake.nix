@@ -49,7 +49,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit lib inputs;
-        osFlakePath = ./.;
+        osFlakePath = toString ./.;
       };
 
       modules = [

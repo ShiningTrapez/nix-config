@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   user = "sophia";
 
   locale = {

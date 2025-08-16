@@ -13,7 +13,7 @@ in {
     useUserPackages = true;
     backupFileExtension = "bak";
 
-    extraSpecialArgs= {
+    extraSpecialArgs = {
       inherit osFlakePath;
 
       inputs = {

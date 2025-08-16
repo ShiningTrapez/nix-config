@@ -1,21 +1,23 @@
 {
   description = "NixOS Config Flake - Rainbow Machine";
 
-  nixConfig = let
+  nixConfig = {
     substituters = [
       "https://cache.nixos.org"
       "https://watersucks.cachix.org"
     ];
-  in {
-    inherit substituters;
-    trusted-substituters = substituters;
+
+    trusted-substituters = [
+      "https://cache.nixos.org"
+      "https://watersucks.cachix.org"
+    ];
 
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
     ];
 
-    extra-experimental-features = [ "nix-command" "flakes" ];
+    extra-experimental-features = ["nix-command" "flakes"];
   };
 
   inputs = {
@@ -39,7 +41,7 @@
     ...
   }: let
     lib = nixpkgs.lib.extend (
-      self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; }
+      self: super: {custom = import ./lib {inherit (nixpkgs) lib;};}
     );
 
     supportedSystems = ["x86_64-linux"];

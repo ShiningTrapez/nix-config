@@ -1,10 +1,11 @@
 {
   config,
+  lib,
   inputs,
   ...
 }: let
-  inherit (config) user;
-  inherit (config) homeDir;
+  inherit (config) homeDir user;
+  inherit (lib.custom) scanPaths;
 in {
   home-manager = {
     useGlobalPkgs = true;
@@ -23,22 +24,7 @@ in {
         homeDirectory = homeDir;
       };
 
-      imports = [
-        ./atuin.nix
-        ./copyq.nix
-        ./dconf.nix
-        ./direnv.nix
-        ./editorconfig.nix
-        ./emacs.nix
-        ./fzf.nix
-        ./git.nix
-        ./kitty.nix
-        ./lsd.nix
-        ./packages.nix
-        ./starship.nix
-        ./vicinae.nix
-        ./zsh
-      ];
+      imports = scanPaths ./.;
 
       programs.home-manager.enable = true;
     };

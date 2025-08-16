@@ -1,5 +1,5 @@
-_: {
-  imports = [
-    ./dafont.nix
-  ];
+{lib, ...}: let
+  inherit (lib.custom) scanPaths;
+in {
+  imports = scanPaths ./.;
 }

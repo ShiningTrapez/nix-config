@@ -1,6 +1,5 @@
-{...}: {
-  imports = [
-    ./config.nix
-    ./options.nix
-  ];
+{lib, ...}: let
+  inherit (lib.custom) scanPaths;
+in {
+  imports = scanPaths ./.;
 }

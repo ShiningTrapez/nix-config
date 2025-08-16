@@ -21,7 +21,10 @@
     nixos-cli,
     ...
   }: let
-    inherit (nixpkgs) lib;
+    lib = nixpkgs.lib.extend (
+      self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; }
+    );
+
     supportedSystems = ["x86_64-linux"];
     forAllSystems = f: lib.genAttrs supportedSystems f;
     hostname = "RainbowMachine";
@@ -44,7 +47,9 @@
 
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit lib inputs;
+      };
 
       modules = [
         ./overlays.nix

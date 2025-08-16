@@ -4,11 +4,10 @@
   ...
 }:
 with pkgs; let
+  inherit (lib.custom) scanPaths;
   nerdFonts = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 in {
-  imports = [
-    ./custom
-  ];
+  imports = scanPaths ./.;
 
   environment.systemPackages = [
     corefonts

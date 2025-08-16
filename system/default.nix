@@ -1,18 +1,5 @@
-{...}: {
-  imports = [
-    ./fonts
-    ./packages.nix
-    ./boot.nix
-    ./fonts.nix
-    ./graphics.nix
-    ./locale.nix
-    ./networking.nix
-    ./nix.nix
-    ./other.nix
-    ./packages.nix
-    ./razor.nix
-    ./sleep.nix
-    ./sound.nix
-    ./sddm.nix
-  ];
+{lib,...}: let
+  inherit (lib.custom) scanPaths;
+in {
+  imports = scanPaths ./.;
 }

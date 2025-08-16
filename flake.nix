@@ -1,6 +1,23 @@
 {
   description = "NixOS Config Flake - Rainbow Machine";
 
+  nixConfig = let
+    substituters = [
+      "https://cache.nixos.org"
+      "https://watersucks.cachix.org"
+    ];
+  in {
+    inherit substituters;
+    trusted-substituters = substituters;
+
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
+    ];
+
+    extra-experimental-features = [ "nix-command" "flakes" ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 

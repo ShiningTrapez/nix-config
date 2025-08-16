@@ -40,16 +40,10 @@
     hunspell
     hunspellDicts.en_GB-large
 
-    packwiz
-
     texlive.combined.scheme-full
     prismlauncher
     jetbrains.idea-community
 
-    # (discord-ptb.override {
-    # withOpenASAR = true;
-    # withVencord = true;
-    # })
     vesktop # Discord Alt Client
     slack
     teams-for-linux
@@ -61,6 +55,8 @@
     swappy
 
     zed-editor
+
+    vicinae
 
     # https://discourse.nixos.org/t/issue-building-linux-kernel-modules-after-flake-update/62322/15
     nixVersions.latest

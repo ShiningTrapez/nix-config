@@ -13,6 +13,6 @@
     ./razor.nix
     ./sleep.nix
     ./sound.nix
-    ./sddm
+    ./sddm.nix
   ];
 }

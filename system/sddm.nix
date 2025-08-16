@@ -8,14 +8,7 @@
   config = lib.mkIf config.services.displayManager.sddm.enable {
     services.displayManager.sddm.theme = "sugar-dark";
     environment.systemPackages = [
-      (pkgs.libsForQt5.callPackage ./sugar-dark.nix {
-        configOverrides = pkgs.writeText "custom-theme.conf" ''
-          [General]
-          # Force default
-          ScreenWidth=
-          ScreenHeight=
-        '';
-      })
+      pkgs.sddm-sugar-dark
     ];
   };
 }

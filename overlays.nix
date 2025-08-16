@@ -9,8 +9,6 @@
           ScreenHeight=
         '';
       };
-
-      vicinae = pkgs.callPackage ./packages/vicinae.nix {};
     })
   ];
 }

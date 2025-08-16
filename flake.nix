@@ -2,10 +2,10 @@
   description = "NixOS Config Flake - Rainbow Machine";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable?shallow=1";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master?shallow=1";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

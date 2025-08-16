@@ -22,7 +22,7 @@
         b = "branch";
         f = "fetch";
         p = "push";
-        pf = "push —force-with-lease";
+        pf = "push --force-with-lease";
         pu = "pull";
         s = "status";
 

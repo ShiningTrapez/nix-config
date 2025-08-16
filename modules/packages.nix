@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   programs.jq.enable = true;
 
+  programs.nix-index-database.comma.enable = true;
+
   home.packages = with pkgs; [
     bat
     gimp-with-plugins

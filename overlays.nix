@@ -1,14 +1,8 @@
-{pkgs, ...}: {
+_: {
   nixpkgs.overlays = [
-    (_: prev: {
-      sddm-sugar-dark = pkgs.libsForQt5.callPackage ./packages/sddm-sugar-dark.nix {
-        configOverrides = pkgs.writeText "custom-theme.conf" ''
-          [General]
-          # Force default
-          ScreenWidth=
-          ScreenHeight=
-        '';
-      };
-    })
+    (_: prev:
+      let pkgset = import ./packages { pkgs = prev; };
+      in pkgset
+    )
   ];
 }

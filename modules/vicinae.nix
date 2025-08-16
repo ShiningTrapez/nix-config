@@ -1,7 +1,7 @@
 {pkgs, ...}: let
-  vicinae = pkgs.callPackage ./vicinae.nix {};
+  inherit (pkgs) vicinae wl-clipboard;
 in {
-  home.packages = with pkgs; [
+  home.packages = [
     vicinae
     wl-clipboard
   ];

@@ -36,7 +36,7 @@ in {
         ./lsd.nix
         ./packages.nix
         ./starship.nix
-        ./vicinae
+        ./vicinae.nix
         ./zsh
       ];
 

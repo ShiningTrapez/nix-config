@@ -42,6 +42,10 @@
         button-layout = "icon:minimize,maximize,close";
       };
 
+      "org/gnome/desktop/wm/keybindings" = {
+        switch-input-source = [ ]; # Default: ['<Super>space','XF86Keyboard']
+      };
+
       "org/gtk/settings/file-chooser" = {
         date-format = "regular";
         location-mode = "path-bar";
@@ -52,6 +56,18 @@
         sort-directories-first = false;
         sort-order = "ascending";
         type-format = "category";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        ];
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        name = "Vicinae";
+        command = "${pkgs.vicinae}/bin/vicinae";
+        binding = "<Super>space";
       };
     };
   };

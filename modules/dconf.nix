@@ -43,7 +43,7 @@
       };
 
       "org/gnome/desktop/wm/keybindings" = {
-        switch-input-source = [ ]; # Default: ['<Super>space','XF86Keyboard']
+        switch-input-source = []; # Default: ['<Super>space','XF86Keyboard']
       };
 
       "org/gtk/settings/file-chooser" = {

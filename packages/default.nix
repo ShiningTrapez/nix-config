@@ -1,4 +1,4 @@
-{pkgs,...}: let
+{pkgs, ...}: let
   inherit (pkgs) libsForQt5 writeText callPackage;
 in {
   sddm-sugar-dark = libsForQt5.callPackage ./sddm-sugar-dark.nix {

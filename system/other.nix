@@ -5,10 +5,7 @@
 }:
 with pkgs; {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkg.pname or "") [
-    "google-chrome"
-    "microsoft-edge"
     "steam"
-    "nvidia-x11"
     "nvidia-settings"
     "nvidia-persistenced"
     "slack"

@@ -1,6 +1,4 @@
 {lib, ...}: {
-  relativeToRoot = toString (lib.path.append ../.);
-
   scanPaths = path:
     builtins.map (f: (path + "/${f}")) (
       builtins.attrNames (

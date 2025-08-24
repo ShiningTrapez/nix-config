@@ -43,7 +43,9 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit lib inputs;
-        osFlakePath = toString ./.;
+
+        # TODO Don't hardcode this
+        osFlakePath = "/home/sophia/Projects/nix-config";
       };
 
       modules = [

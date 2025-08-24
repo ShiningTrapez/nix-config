@@ -1,5 +1,5 @@
 {lib, ...}: let
   inherit (lib.custom) scanPaths;
 in {
-  imports = scanPaths ./.;
+  imports = scanPaths ./. ++ [ ./nix.nix ];
 }

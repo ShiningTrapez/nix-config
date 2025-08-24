@@ -9,6 +9,11 @@
   programs.nix-ld.enable = true;
 
   nix = {
+    checkConfig = true;
+    checkAllErrors = true;
+
+    # https://discourse.nixos.org/t/issue-building-linux-kernel-modules-after-flake-update/62322/15
+    package = pkgs.nixVersions.latest;
     settings = {
       auto-optimise-store = true;
 
@@ -16,6 +21,23 @@
       trusted-users = [
         "root"
         "@wheel"
+      ];
+
+      substituters = [
+        "https://cache.nixos.org"
+      ];
+
+      trusted-substituters = [
+        "https://cache.nixos.org"
+      ];
+
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
+
+      extra-experimental-features = [
+        "flakes"
+        "nix-command"
       ];
     };
   };

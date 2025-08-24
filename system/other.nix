@@ -4,13 +4,15 @@
   ...
 }:
 with pkgs; {
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (pkg.pname or "") [
-      "steam"
-      "nvidia-settings"
-      "nvidia-persistenced"
-      "slack"
-    ];
+  # nixpkgs.config.allowUnfreePredicate = pkg:
+  #   builtins.elem (pkg.pname or "") [
+  #     "steam"
+  #     "nvidia-settings"
+  #     "nvidia-persistenced"
+  #     "slack"
+  #   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     zsh.enable = true;

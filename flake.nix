@@ -4,17 +4,14 @@
   nixConfig = {
     substituters = [
       "https://cache.nixos.org"
-      "https://watersucks.cachix.org"
     ];
 
     trusted-substituters = [
       "https://cache.nixos.org"
-      "https://watersucks.cachix.org"
     ];
 
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
     ];
 
     extra-experimental-features = ["nix-command" "flakes"];
@@ -27,17 +24,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-cli = {
-      url = "github:nix-community/nixos-cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
-    nixos-cli,
     ...
   }: let
     lib = nixpkgs.lib.extend (
@@ -76,8 +67,6 @@
         ./hardware/${hostname}.nix
         ./config
         ./system
-
-        nixos-cli.nixosModules.nixos-cli
 
         home-manager.nixosModules.home-manager
 

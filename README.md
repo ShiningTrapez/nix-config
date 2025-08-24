@@ -21,11 +21,6 @@ $ nix flake update .
 # Rebuild System
 $ sudo nixos-rebuild switch --impure --flake .
 
-# After install
-$ nixos apply .
-# Or
-$ nixos rebuild
-
 # Format
 $ nix fmt
 

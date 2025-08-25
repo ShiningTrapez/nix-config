@@ -52,6 +52,7 @@
     slurp
     swappy
 
-    zed-editor
+    scrcpy
+    androidenv.androidPkgs.platform-tools
   ];
 }

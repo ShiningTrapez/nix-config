@@ -68,6 +68,8 @@ in {
 
       g = "git";
 
+      phone = "scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K &";
+
       # Workaround for non FHS Patched Binaries installed by FNM
       # TODO: Use nix-ld
       npm = "steam-run npm";

@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # man configuration.nix / https://nixos.org/nixos/options.html
   system.stateVersion = "23.11";
 

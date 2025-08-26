@@ -54,5 +54,10 @@
 
     scrcpy
     androidenv.androidPkgs.platform-tools
+
+    kdePackages.dolphin
+    kdePackages.qtsvg
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
   ];
 }

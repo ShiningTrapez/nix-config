@@ -59,6 +59,7 @@ with pkgs; {
       iagno # go game
       tali # poker game
       totem # video player
+      file-roller
     ];
 
     systemPackages = [

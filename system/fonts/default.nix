@@ -12,6 +12,7 @@ in {
   environment.systemPackages = [
     corefonts
     fontconfig
+    freetype
   ];
 
   fonts = {

@@ -10,12 +10,15 @@
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    userName = "Sophia Bitterstar";
-    userEmail = "sophia@shiningtrapezohedron.com";
 
     iniContent.gpg.format = pkgs.lib.mkForce "ssh";
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Sophia Bitterstar";
+        email = "sophia@shiningtrapezohedron.com";
+      };
+
       alias = {
         a = "add";
         aa = "add -A";

@@ -26,7 +26,7 @@
         pu = "pull";
         s = "status";
 
-        update = "git fetch && git pull";
+        update = "!git fetch && git pull";
 
         ref = "show --quiet --format=reference";
         short = "show --quiet --format=%h";

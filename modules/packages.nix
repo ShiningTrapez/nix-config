@@ -13,7 +13,6 @@
     protontricks
     heroic
 
-    zeal
     kubectl
 
     imagemagick

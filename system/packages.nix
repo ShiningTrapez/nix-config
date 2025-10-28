@@ -1,4 +1,24 @@
+<<<<<<< HEAD
 {pkgs, ...}: {
+||||||| parent of e1457a1 (Format)
+{pkgs, ...}: let
+  ffmpeg-unfree =
+    ((pkgs.ffmpeg-full.override {
+      withUnfree = true;
+    }).overrideAttrs (_: {
+      doCheck = false;
+    }));
+in {
+=======
+{pkgs, ...}: let
+  ffmpeg-unfree =
+    (pkgs.ffmpeg-full.override {
+      withUnfree = true;
+    }).overrideAttrs (_: {
+      doCheck = false;
+    });
+in {
+>>>>>>> e1457a1 (Format)
   hardware.opentabletdriver.enable = true;
 
   environment.systemPackages = with pkgs; [

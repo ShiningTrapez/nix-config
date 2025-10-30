@@ -9,7 +9,7 @@
 
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
+    package = pkgs.gitFull;
 
     iniContent.gpg.format = pkgs.lib.mkForce "ssh";
 

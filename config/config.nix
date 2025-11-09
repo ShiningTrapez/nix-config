@@ -7,7 +7,7 @@ _: {
     keyMap = "uk";
   };
 
-  razor.enable = false;
+  razor.enable = true;
   fonts.all.enable = true;
   performance.insecureDisableMitigations = true;
 }

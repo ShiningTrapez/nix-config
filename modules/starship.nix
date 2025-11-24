@@ -3,7 +3,7 @@ _: {
     enable = true;
     settings = {
       format = "[┌─{](dimmed purple) \${custom.rainbow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nodejs$haskell$gradle$java$kotlin\\]\${env_var.DIRENV_DIFF}─>](dimmed purple)\n[└─>](dimmed purple) $jobs";
-      right_format = "$git_branch$git_commit$git_metrics$git_state$git_status";
+      # right_format = "$git_branch$git_commit$git_metrics$git_state$git_status";
 
       directory.format = "[$path]($style)[$read_only]($read_only_style)";
 
@@ -14,27 +14,27 @@ _: {
         style = "dimmed white";
       };
 
-      git_commit = {
-        style = "dimmed white";
-        format = "[#$hash$tag]($style)";
-        only_detached = false;
-      };
+      # git_commit = {
+      #   style = "dimmed white";
+      #   format = "[#$hash$tag]($style)";
+      #   only_detached = false;
+      # };
 
-      git_branch.format = " [$symbol$branch(:$remote_branch)]($style)";
-      git_state.format = " \\([$state( $progress_current/$progress_total)]($style)\\)";
+      # git_branch.format = " [$symbol$branch(:$remote_branch)]($style)";
+      # git_state.format = " \\([$state( $progress_current/$progress_total)]($style)\\)";
 
-      git_status = {
-        format = " ([\\[$typechanged$all_status$ahead_behind\\]]($style))";
-        ignore_submodules = true;
-        typechanged = "T";
-      };
+      # git_status = {
+      #   format = " ([\\[$typechanged$all_status$ahead_behind\\]]($style))";
+      #   ignore_submodules = true;
+      #   typechanged = "T";
+      # };
 
-      git_metrics = {
-        disabled = false;
-        ignore_submodules = true;
-        only_nonzero_diffs = true;
-        format = "( ([+$added]($added_style))(/[-$deleted]($deleted_style)))";
-      };
+      # git_metrics = {
+      #   disabled = false;
+      #   ignore_submodules = true;
+      #   only_nonzero_diffs = true;
+      #   format = "( ([+$added]($added_style))(/[-$deleted]($deleted_style)))";
+      # };
 
       jobs.format = "[$symbol( \($number\))]($style) ";
 

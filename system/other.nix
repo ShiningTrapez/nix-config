@@ -30,44 +30,44 @@ with pkgs; {
     xserver.enable = true;
     displayManager.sddm.enable = true;
 
-    # desktopManager.gnome.enable = true;
+    desktopManager.gnome.enable = true;
 
-    # udev.packages = [
-    #   gnome-settings-daemon
-    # ];
+    udev.packages = [
+      gnome-settings-daemon
+    ];
 
     # Needed for SignIn in VSCode
-    # gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     openssh.enable = true;
   };
 
-  # environment = {
-  #   gnome.excludePackages = [
-  #     atomix # puzzle game
-  #     cheese # webcam tool
-  #     epiphany # web browser
-  #     evince # document viewer
-  #     geary # email reader
-  #     gedit # text editor
-  #     gnome-characters
-  #     gnome-music
-  #     gnome-photos
-  #     gnome-terminal
-  #     gnome-tour
-  #     hitori # sudoku game
-  #     iagno # go game
-  #     tali # poker game
-  #     totem # video player
-  #     file-roller
-  #   ];
+  environment = {
+    gnome.excludePackages = [
+      atomix # puzzle game
+      cheese # webcam tool
+      epiphany # web browser
+      evince # document viewer
+      geary # email reader
+      gedit # text editor
+      gnome-characters
+      gnome-music
+      gnome-photos
+      gnome-terminal
+      gnome-tour
+      hitori # sudoku game
+      iagno # go game
+      tali # poker game
+      totem # video player
+      file-roller
+    ];
 
-  #   systemPackages = [
-  #     adwaita-icon-theme
-  #     gnome-tweaks
-  #     gnomeExtensions.appindicator
-  #   ];
-  # };
+    systemPackages = [
+      adwaita-icon-theme
+      gnome-tweaks
+      gnomeExtensions.appindicator
+    ];
+  };
 
   users.users."${config.user}" = {
     shell = zsh;

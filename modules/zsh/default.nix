@@ -53,7 +53,7 @@ in {
 
       reload = "source ${config.xdg.configHome}/zsh/.zshrc";
       system-config = "code --wait ${osFlakePath}";
-      system-update-flake = "nix flake update ${osFlakePath}";
+      system-update-flake = "nix flake update --flake ${osFlakePath}";
       system-rebuild = "sudo nixos-rebuild switch --impure --flake ${osFlakePath} && reload";
       system-upgrade = "system-update-flake && system-rebuild && system-clean";
       clean = "nix-collect-garbage -d";

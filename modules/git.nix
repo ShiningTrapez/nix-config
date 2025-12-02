@@ -20,15 +20,6 @@
       };
 
       alias = {
-        a = "add";
-        aa = "add -A";
-        b = "branch";
-        f = "fetch";
-        p = "push";
-        pf = "push --force-with-lease";
-        pu = "pull";
-        s = "status";
-
         update = "!git fetch && git pull";
 
         ref = "show --quiet --format=reference";

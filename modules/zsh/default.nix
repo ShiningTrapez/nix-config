@@ -67,6 +67,15 @@ in {
       projects = "cd ${projects}";
 
       g = "git";
+      ga = "git add";
+      gaa = "git add -A";
+      gb = "git branch";
+      gc = "git commit";
+      gf = "git fetch";
+      gp = "git push";
+      gpf = "git push --force-with-lease";
+      gpu = "git pull";
+      gs = "git status";
 
       phone = "scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K &";
 

@@ -15,7 +15,9 @@ setopt noflowcontrol
 # https://github.com/ianthehenry/zsh-autoquoter
 ZAQ_PREFIXES+=(
   '(git|g) commit( [^ ]##)# -[^ -]#m'
+  'gc( [^ ]##)# -[^ -]#m'
   '(git|g) all'
+  '(git|g) edit( [^ ]##)# -[^ -]#m'
   'ssh( -[^ ]##)# [^ -][^ ]#'
 )
 

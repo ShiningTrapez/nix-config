@@ -42,6 +42,7 @@
     prismlauncher
     jetbrains.idea-community
 
+    discord-ptb # Discord
     vesktop # Discord Alt Client
     slack
     teams-for-linux

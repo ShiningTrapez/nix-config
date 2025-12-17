@@ -1,4 +1,9 @@
-{pkgs, inputs, system, ...}: {
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}: {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [

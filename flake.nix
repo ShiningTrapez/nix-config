@@ -59,8 +59,9 @@
         ./config
         ./system
 
-        home-manager.nixosModules.home-manager {
-          home-manager.extraSpecialArgs = { inherit inputs system; };
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs = {inherit inputs system;};
         }
 
         ./modules

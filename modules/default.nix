@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  system,
   osFlakePath,
   ...
 }: let
@@ -17,7 +18,7 @@ in {
       inherit osFlakePath;
 
       inputs = {
-        inherit inputs;
+        inherit inputs system;
         nixosConfig = config;
       };
     };

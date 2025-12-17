@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, system, ...}: {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [
@@ -9,6 +9,7 @@
     webcamoid
     ungoogled-chromium
     firefox-beta
+    inputs.zen-browser.packages."${system}".twilight
     protonup-qt
     protontricks
     heroic

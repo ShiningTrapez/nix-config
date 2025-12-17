@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -39,10 +44,10 @@
       }
     );
 
-    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {
-        inherit lib inputs;
+        inherit lib inputs system;
 
         # TODO Don't hardcode this
         osFlakePath = "/home/sophia/Projects/nix-config";
@@ -54,7 +59,9 @@
         ./config
         ./system
 
-        home-manager.nixosModules.home-manager
+        home-manager.nixosModules.home-manager {
+          home-manager.extraSpecialArgs = { inherit inputs system; };
+        }
 
         ./modules
       ];

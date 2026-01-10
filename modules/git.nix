@@ -14,10 +14,7 @@
     iniContent.gpg.format = pkgs.lib.mkForce "ssh";
 
     settings = {
-      user = {
-        name = "Sophia Bitterstar";
-        email = "sophia@shiningtrapezohedron.com";
-      };
+      user = config.vcs.user;
 
       alias = {
         update = "!git fetch && git pull";
@@ -65,7 +62,7 @@
       log.date = "iso";
 
       core = {
-        editor = "code -w";
+        editor = config.vcs.editor;
         fsmonitor = true;
         untrackedCache = true;
         autocrlf = "input";
@@ -73,7 +70,7 @@
       };
 
       diff = {
-        context = 10;
+        context = config.vcs.diffContext;
         algorithm = "histogram";
         colorMoved = "plain";
         colorMovedWS = "allow-indentation-change";
@@ -122,10 +119,9 @@
 
       # Signing
       signing.signByDefault = true;
-      user.signingkey = "${config.home.homeDirectory}/.ssh/id_github.pub";
       commit.gpgsign = true;
       gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
+      gpg.ssh.allowedSignersFile = config.vcs.allowedSigners;
 
       # Replace HTTP Remotes with SSH for Github and Gitlab
       url = {
@@ -140,31 +136,18 @@
 
     # https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix#L188
     # https://github.com/hazelweakly/nixos-configs/blob/21d1e90278b56c3e771db8a2f07945e053b44941/home/work.nix#L11
-    includes = let
-      workInfo = {
-        user = {
-          name = "Sophia Lydia Morris-Hind";
-          email = "sophia.morris-hind@bbc.co.uk";
-          signingkey = "${config.home.homeDirectory}/.ssh/id_github_work.pub";
-        };
-      };
-    in [
+    includes = [
       {
         condition = "gitdir:${config.home.homeDirectory}/Work/**";
-        contents = workInfo;
+        contents = {user = config.vcs.workUser;};
       }
       {
         condition = "hasconfig:remote.*.url:git@github.com:bbc/**";
-        contents = workInfo;
+        contents = {user = config.vcs.workUser;};
       }
     ];
 
     # Local Config
     ignores = [".direnv"];
   };
-
-  home.file.".ssh/allowed_signers".text = ''
-    * ${builtins.readFile "${config.home.homeDirectory}/.ssh/id_github.pub"}
-    * ${builtins.readFile "${config.home.homeDirectory}/.ssh/id_github_work.pub"}
-  '';
 }

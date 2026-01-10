@@ -7,11 +7,13 @@
     });
 in {
   hardware.opentabletdriver.enable = true;
+  services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
     dialog
     glibcLocales # https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
     appimage-run
+    gnome-software
 
     # Sound
     ffmpeg-unfree

@@ -38,6 +38,10 @@
         diff-expected-exit-codes = [0 1];
       };
 
+      aliases = {
+        init = ["git" "init"];
+      };
+
       revset-aliases = {
         # revent rewriting commits authored by other users
         "immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())";

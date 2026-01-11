@@ -22,6 +22,19 @@ with pkgs; {
     steam.enable = true;
   };
 
+  # Needed for Sway
+  security = {
+    polkit.enable = true;
+    pam.loginLimits = [
+      {
+        domain = "@users";
+        item = "rtprio";
+        type = "-";
+        value = 1;
+      }
+    ];
+  };
+
   services = {
     gvfs.enable = true; # Mount, Trash etc.
     tumbler.enable = true; # Thumbnail Support

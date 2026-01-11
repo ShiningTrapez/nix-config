@@ -181,5 +181,8 @@ __setup_case_insensitive_cdpath() {
     }
   }
 
+# https://discourse.nixos.org/t/dunst-crashes-if-run-as-service/27671/2
+dbus-update-activation-environment WAYLAND_DISPLAY
+
 compinit
 rehash

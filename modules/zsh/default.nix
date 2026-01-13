@@ -55,6 +55,7 @@ in {
       system-config = "code --wait ${osFlakePath}";
       system-update-flake = "nix flake update --flake ${osFlakePath}";
       system-rebuild = "sudo nixos-rebuild switch --impure --flake ${osFlakePath} && reload";
+      system-rebuild-offline = "sudo nixos-rebuild switch --offline --impure --flake ${osFlakePath} && reload";
       system-upgrade = "system-update-flake && system-rebuild && system-clean";
       clean = "nix-collect-garbage -d";
       system-clean = "sudo clean-generations 2 0 system && clean";

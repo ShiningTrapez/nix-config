@@ -9,7 +9,7 @@
   # | openssl pkey -pubin -outform der \
   # | openssl dgst -sha256 -binary \
   # | openssl enc -base64
-  digest = "SPfg6FluPIlUc6a5h313BDCxQYNGX+THTy7ig5X3+VA=";
+  digest = "ltQ6aXy3tqpNZKJdnevMD7oR+IsI5rNWbOssFDrl+Ew=";
 in {
   networking = {
     hostName = "RainbowMachine";

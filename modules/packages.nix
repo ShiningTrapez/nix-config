@@ -40,7 +40,8 @@
 
     texlive.combined.scheme-full
     prismlauncher
-    jetbrains.idea
+    # jetbrains.idea-oss
+    jetbrains-toolbox
 
     discord-ptb # Discord
     vesktop # Discord Alt Client

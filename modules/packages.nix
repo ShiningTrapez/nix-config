@@ -11,7 +11,7 @@
     firefox-beta
     protonup-qt
     protontricks
-    heroic
+    # heroic
 
     kubectl
 

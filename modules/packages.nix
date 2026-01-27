@@ -7,7 +7,7 @@
     blender
     steam-acf
     webcamoid
-    ungoogled-chromium
+    google-chrome
     firefox-beta
     protonup-qt
     protontricks

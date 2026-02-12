@@ -12,6 +12,7 @@
     protonup-qt
     protontricks
     # heroic
+    freetube
 
     kubectl
 

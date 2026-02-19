@@ -37,6 +37,9 @@ in {
         noto-fonts-color-emoji
         liberation_ttf
         meslo-lgs-nf
+        source-sans-pro
+        roboto
+        font-awesome
       ]
       ++ nerdFonts;
   };

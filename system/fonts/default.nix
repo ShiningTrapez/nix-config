@@ -38,6 +38,7 @@ in {
         liberation_ttf
         meslo-lgs-nf
         source-sans-pro
+        source-sans
         roboto
         font-awesome
       ]

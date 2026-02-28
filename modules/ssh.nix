@@ -25,10 +25,10 @@
         identityFile = "~/.ssh/id_gitlab";
       };
 
-      "foxtech" = {
-        hostname = "foxtech.machine.church";
-        identityFile = "~/.ssh/id_hetzner";
-      };
+      # "foxtech" = {
+      #   hostname = "foxtech.machine.church";
+      #   identityFile = "~/.ssh/id_hetzner";
+      # };
     };
   };
 }

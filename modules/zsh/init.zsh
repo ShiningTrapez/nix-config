@@ -35,6 +35,7 @@ bindkey '^ ' autosuggest-accept
 
 export PATH=$HOME/bin:$HOME/.config/zsh/scripts:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 export PNPM_HOME=$HOME/bin
+export CHROME_BIN=$(which google-chrome-stable)
 
 # Make 'cdpath' suggestions stand out
 # https://superuser.com/questions/265547/zsh-cdpath-and-autocompletion

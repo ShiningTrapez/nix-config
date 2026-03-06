@@ -6,6 +6,8 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
+
     matchBlocks = {
       "github gh github.com gitlab gl gitlab.com" = {
         user = "git";

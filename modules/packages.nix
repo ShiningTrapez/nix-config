@@ -13,6 +13,7 @@
     protontricks
     # heroic
     freetube
+    qbittorrent
 
     kubectl
 

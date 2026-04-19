@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{ inputs, pkgs, ...}: {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [
     bat
-    gimp-with-plugins
+    inputs.nix-photogimp.packages.${stdenv.hostPlatform.system}.default
     blender
     steam-acf
     webcamoid

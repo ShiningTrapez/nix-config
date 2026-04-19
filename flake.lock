@@ -1,5 +1,72 @@
 {
   "nodes": {
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nix-photogimp",
+          "nixpak",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775087534,
+        "narHash": "sha256-91qqW8lhL7TLwgQWijoGBbiD4t7/q75KTi8NxjVmSmA=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "3107b77cd68437b9a76194f0f7f9c55f2329ca5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "hercules-ci-effects": {
+      "inputs": {
+        "flake-parts": [
+          "nix-photogimp",
+          "nixpak",
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nix-photogimp",
+          "nixpak",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773550609,
+        "narHash": "sha256-neu7ixXHjV3LobVjOndkL97u+6UF6Yoh+CUnzX7kUBQ=",
+        "owner": "hercules-ci",
+        "repo": "hercules-ci-effects",
+        "rev": "554f6ed448ca74c00aa2371cde901ae1e73005b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "hercules-ci-effects",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -18,6 +85,51 @@
         "owner": "nix-community",
         "ref": "master",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-photogimp": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpak": "nixpak",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776606668,
+        "narHash": "sha256-BXWRr+Lq1XxfWLm/32ocjz4hvD32cwL4eGM8He98mvU=",
+        "owner": "Libadoxon",
+        "repo": "nix-photo-gimp",
+        "rev": "83a89451a7caf4fc66e96dc8786ae380eb429425",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Libadoxon",
+        "repo": "nix-photo-gimp",
+        "type": "github"
+      }
+    },
+    "nixpak": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "hercules-ci-effects": "hercules-ci-effects",
+        "nixpkgs": [
+          "nix-photogimp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776305949,
+        "narHash": "sha256-5Pqwqf4lEsZLZUcpefwMeq69d8hdirE83C5oWshBXo8=",
+        "owner": "nixpak",
+        "repo": "nixpak",
+        "rev": "b2bb4ab9d8e2457eeec3caa279b394525fbbe1a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixpak",
+        "repo": "nixpak",
         "type": "github"
       }
     },
@@ -40,7 +152,23 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nix-photogimp": "nix-photogimp",
         "nixpkgs": "nixpkgs"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },

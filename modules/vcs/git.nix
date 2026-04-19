@@ -118,6 +118,7 @@
       ];
 
       # Signing
+      signing.format = "openpgp";
       signing.signByDefault = true;
       commit.gpgsign = true;
       gpg.format = "ssh";

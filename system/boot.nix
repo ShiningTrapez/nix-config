@@ -59,6 +59,9 @@ in {
       };
 
       kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+      # https://lea.moe/posts/function-keys-on-iqunix-m80/
+      extraModprobeConfig = "options hid_apple fnmode=2";
     };
   };
 }

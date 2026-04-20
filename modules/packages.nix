@@ -40,6 +40,7 @@
     nixd
     niv
     comma
+    nix-init
     zip
 
     libreoffice-qt

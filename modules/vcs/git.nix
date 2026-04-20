@@ -12,6 +12,7 @@
     package = pkgs.gitFull;
 
     iniContent.gpg.format = pkgs.lib.mkForce "ssh";
+    signing.format = "openpgp";
 
     settings = {
       user = config.vcs.user;
@@ -118,7 +119,6 @@
       ];
 
       # Signing
-      signing.format = "openpgp";
       signing.signByDefault = true;
       commit.gpgsign = true;
       gpg.format = "ssh";

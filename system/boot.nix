@@ -58,7 +58,14 @@ in {
         timeout = 0;
       };
 
-      kernelPackages = pkgs.linuxPackages_xanmod_latest;
+      kernelPackages = pkgs.linuxKernel.packagesFor (pkgs.cachyosKernels.linux-cachyos-latest.override {
+        pname = "${pkgs.cachyosKernels.linux-cachyos-latest.pname}-shining";
+
+        # Kernel Settings
+        lto = "full";
+        processorOpt = "x86_64-v4";
+        autofdo = true;
+      });
 
       # https://lea.moe/posts/function-keys-on-iqunix-m80/
       extraModprobeConfig = "options hid_apple fnmode=2";

@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     nix-photogimp = {
       url = "github:Libadoxon/nix-photo-gimp";
       inputs.nixpkgs.follows = "nixpkgs";

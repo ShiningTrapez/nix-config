@@ -15,7 +15,7 @@
     nativeBuildInputs = [curl jq];
 
     outputHashAlgo = "sha256";
-    outputHash = "sha256-cmP4ppsvNP42yEJiHamfI8QDAlFr+pIh7duaFQIaHsQ=";
+    outputHash = "sha256-nliUIFEPiJBT0UUwiUs6c8QoXZTEBU4ivphqNQroygk=";
     outputHashMode = "recursive";
 
     dontUnpack = true;
@@ -25,29 +25,25 @@
     installPhase = ''
       runHook preInstall
 
-      mkdir -p "$out/share/fonts/truetype" "$out/share/fonts/opentype"
+      tmpdir=$(mktemp -d)
 
       fetch_dir() {
         local url="$1"
         while IFS= read -r entry; do
-          local name url_enc is_dir lower dest
+          local name url_enc is_dir
           name=$(jq -r '.name' <<<"$entry")
           url_enc=$(jq -r '.url' <<<"$entry")
           is_dir=$(jq -r '.is_dir' <<<"$entry")
           [[ "$is_dir" == "true" ]] && continue
-          lower="''${name,,}"
-          case "$lower" in
-            *.ttf|*.ttc) dest="$out/share/fonts/truetype" ;;
-            *.otf|*.otc) dest="$out/share/fonts/opentype" ;;
-            *) continue ;;
-          esac
-          curl -fsSL -o "$dest/$name" "$url/''${url_enc#./}"
+          curl -fsSL -o "$tmpdir/$name" "$url/''${url_enc#./}"
         done < <(curl --json "" -s "$url" | jq -c '.[]')
       }
 
       fetch_dir "${base}"
       fetch_dir "${base}/handwriting"
       fetch_dir "${base}/uncategorized"
+
+      src="$tmpdir" bash ${./fontInstall.sh}
 
       runHook postInstall
     '';

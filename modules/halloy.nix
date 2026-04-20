@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # https://halloy.chat/configuration.html
   programs.halloy = {
     enable = true;

@@ -11,13 +11,13 @@
     enable = true;
     settings = {
       user = {
-        name = config.vcs.user.name;
-        email = config.vcs.user.email;
+        inherit (config.vcs.user) name email;
       };
 
-      ui = {
-        editor = config.vcs.editor;
-        merge-editor = config.vcs.editor;
+      ui = rec {
+        inherit (config.vcs) editor;
+
+        merge-editor = editor;
         default-command = ["st"];
         diff-formatter = ":git";
         conflict-marker-style = "git";
@@ -90,8 +90,7 @@
         {
           "--when".repositories = ["${config.home.homeDirectory}/Work"];
           user = {
-            name = config.vcs.workUser.name;
-            email = config.vcs.workUser.email;
+            inherit (config.vcs.workUser) name email;
           };
 
           signing.key = config.vcs.workUser.signingKey;

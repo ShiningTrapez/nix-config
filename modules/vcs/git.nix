@@ -15,7 +15,7 @@
     signing.format = "openpgp";
 
     settings = {
-      user = config.vcs.user;
+      inherit (config.vcs) user;
 
       alias = {
         update = "!git fetch && git pull";
@@ -63,7 +63,8 @@
       log.date = "iso";
 
       core = {
-        editor = config.vcs.editor;
+        inherit (config.vcs) editor;
+
         fsmonitor = true;
         untrackedCache = true;
         autocrlf = "input";

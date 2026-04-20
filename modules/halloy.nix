@@ -13,7 +13,7 @@
       servers.terminal = {
         nickname = "sophia";
         server = "orangeclock.work";
-        channels = [ "#istudiedtheterminal" ];
+        channels = ["#istudiedtheterminal"];
       };
     };
   };

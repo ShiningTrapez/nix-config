@@ -1,7 +1,7 @@
 _: {
   programs.kitty = {
     enable = true;
-     font = {
+    font = {
       name = "Iosevka Nerd Font Mono";
       size = 14;
     };

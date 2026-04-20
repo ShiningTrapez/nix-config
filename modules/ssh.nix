@@ -1,4 +1,8 @@
-{config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   home.file.".ssh/allowed_signers".text = ''
     * ${builtins.readFile config.vcs.user.signingKey}
     * ${builtins.readFile config.vcs.workUser.signingKey}
@@ -41,7 +45,7 @@
   };
 
   home.activation = {
-    fixSshPermissions = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    fixSshPermissions = lib.hm.dag.entryAfter ["linkGeneration"] ''
       run install -d -m 0700 "$HOME/.ssh"
       if [ -L "$HOME/.ssh/config" ]; then
         src="$(readlink -f "$HOME/.ssh/config")"

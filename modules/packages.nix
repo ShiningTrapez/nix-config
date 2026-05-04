@@ -52,7 +52,8 @@
     # jetbrains.idea-oss
     jetbrains-toolbox
 
-    discord-ptb # Discord
+    # openssl-1.1.1w marked insecure
+    # discord-ptb # Discord
     vesktop # Discord Alt Client
     slack
     teams-for-linux

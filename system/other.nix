@@ -73,6 +73,7 @@ with pkgs; {
       tali # poker game
       totem # video player
       file-roller
+      snapshot
     ];
 
     systemPackages = [

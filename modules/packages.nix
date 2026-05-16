@@ -65,7 +65,7 @@
     swappy
 
     scrcpy
-    androidenv.androidPkgs.platform-tools
+    android-tools
 
     kdePackages.dolphin
     kdePackages.qtsvg

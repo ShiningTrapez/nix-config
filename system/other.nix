@@ -91,6 +91,7 @@ with pkgs; {
       "networkmanager"
       "wheel"
       "docker"
+      "adbusers"
     ];
     uid = 1000;
   };

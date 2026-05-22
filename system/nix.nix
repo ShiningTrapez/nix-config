@@ -22,9 +22,6 @@
 
       substituters = [
         "https://cache.nixos.org"
-
-        # https://github.com/xddxdd/nix-cachyos-kernel
-        "https://attic.xuyh0120.win/lantian"
         "https://cache.garnix.io"
       ];
 
@@ -34,9 +31,6 @@
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-
-        # https://github.com/xddxdd/nix-cachyos-kernel
-        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       ];
 

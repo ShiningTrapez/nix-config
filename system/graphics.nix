@@ -3,7 +3,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.latest;
     modesetting.enable = true;
     powerManagement.enable = false;
-    open = false;
+    open = true;
     nvidiaSettings = true;
   };
 

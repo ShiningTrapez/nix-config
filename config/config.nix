@@ -9,5 +9,5 @@ _: {
 
   razor.enable = true;
   fonts.all.enable = true;
-  performance.insecureDisableMitigations = true;
+  performance.insecureDisableMitigations = false;
 }

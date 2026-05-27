@@ -9,6 +9,8 @@
     checkConfig = true;
     checkAllErrors = true;
 
+    gc.randomizedDelaySec = "10m";
+
     # https://discourse.nixos.org/t/issue-building-linux-kernel-modules-after-flake-update/62322/15
     package = pkgs.nixVersions.latest;
     settings = {

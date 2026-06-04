@@ -13,6 +13,11 @@
       url = "github:Libadoxon/nix-photo-gimp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -63,6 +68,8 @@
         {
           home-manager.extraSpecialArgs = {inherit inputs system;};
         }
+
+        inputs.niri.nixosModules.niri
 
         ./modules
       ];

@@ -32,6 +32,8 @@
     "rd.udev.log_level=3"
     "kernel.nmi_watchdog=0"
     "nowatchdog"
+    # https://discourse.nixos.org/t/turn-off-autosuspend-for-usb/58933
+    "usbcore.autosuspend=-1"
   ];
 in {
   options.performance.insecureDisableMitigations = mkOption {

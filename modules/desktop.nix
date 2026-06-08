@@ -21,5 +21,6 @@
     alacritty-graphics
     fuzzel
     quickshell
+    awww
   ];
 }

@@ -1,6 +1,12 @@
 # Automatically remove duplicates
 typeset -U path cdpath fpath manpath
 
+# Fix compinit
+# https://stackoverflow.com/questions/70433815/zsh-completions-error-when-loading-zsh-compinit-function-definition-file-not
+if ! autoload -U +X compinit 2>/dev/null; then
+  FPATH=$(zsh -l -c 'echo $FPATH')
+fi
+
 setopt share_history
 setopt interactivecomments
 setopt completeinword

@@ -20,5 +20,6 @@
     mako
     alacritty-graphics
     fuzzel
+    quickshell
   ];
 }

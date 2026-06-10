@@ -1,0 +1,3 @@
+workspace "firefox" {
+  open-on-output "HDMI-1"
+}

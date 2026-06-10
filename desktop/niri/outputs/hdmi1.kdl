@@ -1,0 +1,9 @@
+// Right
+output "HDMI-1" {
+  mode "2560x1080"
+  position x=2560 y=0
+
+  hot-corners {
+    top-right
+  }
+}

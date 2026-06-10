@@ -1,0 +1,3 @@
+include "workspaces/discord.kdl"
+include "workspaces/firefox.kdl"
+include "workspaces/ide.kdl"

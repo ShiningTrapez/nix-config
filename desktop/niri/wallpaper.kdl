@@ -1,0 +1,2 @@
+spawn-at-startup "awww-daemon"
+spawn-sh-at-startup "awww img ~/Projects/nix-config/desktop/wallpaper/8ball.jpg"

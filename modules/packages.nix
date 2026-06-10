@@ -11,6 +11,7 @@
     # https://discourse.nixos.org/t/how-to-fix-evaluation-warning-system-has-been-renamed-to-replaced-by-stdenv-hostplatform-system/72120
     inputs.nix-photogimp.packages.${stdenv.hostPlatform.system}.default
     blender
+    inkscape-with-extensions
     freecad-wayland
     steam-acf
     webcamoid

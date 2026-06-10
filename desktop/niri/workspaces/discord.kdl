@@ -1,0 +1,15 @@
+spawn-at-startup "vesktop"
+
+workspace "discord" {
+  open-on-output "DP-2"
+}
+
+window-rule {
+  match app-id=r#"^vesktop$"#
+  match at-startup=true
+
+  open-on-workspace "discord"
+  open-maximized-to-edges true
+  open-fullscreen false
+  open-focused false
+}

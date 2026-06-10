@@ -1,0 +1,10 @@
+// https://github.com/niri-wm/niri/wiki/Configuration
+
+include "binds.kdl"
+include "input.kdl"
+include "misc.kdl"
+include "outputs.kdl"
+include "startup.kdl"
+include "wallpaper.kdl"
+include "window_rules.kdl"
+include "workspaces.kdl"

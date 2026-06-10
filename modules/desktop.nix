@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   ...
 }: {
@@ -20,7 +21,12 @@
     mako
     alacritty-graphics
     fuzzel
-    quickshell
     awww
+
+    (inputs.quickshell.packages.${stdenv.hostPlatform.system}.default.withModules [
+      inputs.qml-niri.packages.${stdenv.hostPlatform.system}.default
+      qt6.qtwayland
+      qt6.qt5compat
+    ])
   ];
 }

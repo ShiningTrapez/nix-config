@@ -1,0 +1,1 @@
+spawn-sh-at-startup "qs -p ~/Projects/nix-config/desktop/bar/bar.qml"

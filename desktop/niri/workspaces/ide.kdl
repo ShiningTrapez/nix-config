@@ -1,0 +1,3 @@
+workspace "ide" {
+  open-on-output "DP-3"
+}

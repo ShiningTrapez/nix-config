@@ -7,13 +7,11 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "github gh github.com gitlab gl gitlab.com" = {
         user = "git";
         identitiesOnly = true;
-        extraOptions = {
-          RequestTTY = "no";
-        };
+        RequestTTY = "no";
       };
 
       "github gh github.com" = lib.hm.dag.entryAfter ["github gh github.com gitlab gl gitlab.com"] {

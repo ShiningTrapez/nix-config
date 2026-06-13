@@ -51,8 +51,6 @@
 
     texlive.combined.scheme-full
     prismlauncher
-    # jetbrains.idea-oss
-    jetbrains-toolbox
 
     # openssl-1.1.1w marked insecure
     # discord-ptb # Discord

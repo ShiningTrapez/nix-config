@@ -40,8 +40,8 @@ with lib; {
   config = {
     vcs = {
       user = {
-        name = "Sophia Bitterstar";
-        email = "sophia@shiningtrapezohedron.com";
+        name = "Vriska Sophia Bitterstar";
+        email = "vriska@shiningtrapezohedron.com";
         signingKey = "${config.home.homeDirectory}/.ssh/id_github.pub";
       };
 

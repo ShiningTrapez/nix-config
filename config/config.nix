@@ -1,5 +1,5 @@
 _: {
-  user = "sophia";
+  user = "vriska";
 
   locale = {
     locale = "en_GB.UTF-8";

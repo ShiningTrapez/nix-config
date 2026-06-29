@@ -61,7 +61,7 @@
         inherit lib inputs system;
 
         # TODO Don't hardcode this
-        osFlakePath = "/home/sophia/Projects/nix-config";
+        osFlakePath = "/home/vriska/Projects/nix-config";
       };
 
       modules = [

@@ -2,14 +2,14 @@ _: {
   programs.starship = {
     enable = true;
     settings = {
-      format = "[┌─{](dimmed purple) \${custom.rainbow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nodejs$haskell$gradle$java$kotlin\\]\${env_var.DIRENV_DIFF}─>](dimmed purple)\n[└─>](dimmed purple) $jobs";
+      format = "[┌─{](dimmed blue) \${custom.rainbow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nodejs$haskell$gradle$java$kotlin\\]\${env_var.DIRENV_DIFF}─>](dimmed blue)\n[└─>](dimmed blue) $jobs";
       right_format = "$git_branch$git_commit$git_metrics$git_state$git_status";
 
       directory.format = "[$path]($style)[$read_only]($read_only_style)";
 
       env_var.DIRENV_DIFF = {
         symbol = "DIRENV";
-        format = "[[-\\[](dimmed purple)$symbol[\\]](dimmed purple)]($style)";
+        format = "[[-\\[](dimmed blue)$symbol[\\]](dimmed blue)]($style)";
         description = "Direnv Diff in Environment";
         style = "dimmed white";
       };
@@ -20,7 +20,11 @@ _: {
         only_detached = false;
       };
 
-      git_branch.format = " [$symbol$branch(:$remote_branch)]($style)";
+      git_branch = {
+        format = " [$symbol$branch(:$remote_branch)]($style)";
+        style = "dimmed blue";
+      };
+
       git_state.format = " \\([$state( $progress_current/$progress_total)]($style)\\)";
 
       git_status = {
@@ -72,12 +76,12 @@ _: {
 
       time = {
         disabled = false;
-        style = "bold purple";
+        style = "bold blue";
         format = "[$time]($style)";
       };
 
       username = {
-        style_user = "bold purple";
+        style_user = "bold blue";
         format = "[$user]($style)";
         show_always = true;
       };

@@ -56,6 +56,7 @@
     slack
     teams-for-linux
     vscode
+    github-copilot-cli # If you can't beat them...
 
     # Screenshots
     grim

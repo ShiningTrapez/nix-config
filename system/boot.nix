@@ -47,12 +47,17 @@ in {
       "CPU mitigations disabled (performance.insecureDisableMitigations)."
     ];
 
+      services.udev.extraRules = ''
+        KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+      '';
+
     boot = {
       tmp.cleanOnBoot = true;
       initrd.verbose = false;
       consoleLogLevel = 3;
 
       kernelParams = baseParams ++ optionals config.performance.insecureDisableMitigations mitigationParams;
+      kernelModules = ["i2c-dev"];
 
       loader = {
         systemd-boot.enable = true;

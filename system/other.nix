@@ -92,6 +92,7 @@ with pkgs; {
       "wheel"
       "docker"
       "adbusers"
+       "i2c"
     ];
     uid = 1000;
   };

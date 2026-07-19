@@ -11,6 +11,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     dialog
+    ddcutil
     glibcLocales # https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
     appimage-run
     gnome-software

@@ -184,7 +184,9 @@ __setup_case_insensitive_cdpath() {
   [[ "$TERM_PROGRAM" != "vscode" \
     && -z $EMACS_VTERM_PATH \
     && -z $FIG_JETBRAINS_SHELL_INTEGRATION ]] && {
-      macchina | lolcat -tfp 2.0 2> /dev/null
+      macchina |
+        sed -e "s/RainbowMachine/$(echo RainbowMachine | lolcat -ftp 0.3 2> /dev/null)/" |
+        sed -e "s/vriska/$(echo -e "\033[38;5;33mvriska\033[0m"/)"
     }
   }
 

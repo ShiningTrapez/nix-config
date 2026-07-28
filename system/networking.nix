@@ -12,7 +12,7 @@
   digest = "ltQ6aXy3tqpNZKJdnevMD7oR+IsI5rNWbOssFDrl+Ew=";
 in {
   networking = {
-    hostName = "RainbowMachine";
+    hostName = "Rain8owMachine";
     nameservers = ["127.0.0.1" "::1"];
     useDHCP = mkDefault true;
 

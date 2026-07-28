@@ -2,7 +2,7 @@ _: {
   programs.starship = {
     enable = true;
     settings = {
-      format = "[┌─{](dimmed blue) \${custom.rainbow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nodejs$haskell$gradle$java$kotlin\\]\${env_var.DIRENV_DIFF}─>](dimmed blue)\n[└─>](dimmed blue) $jobs";
+      format = "[┌─{](dimmed blue) \${custom.rain8ow-hostname}\${custom.hostname}$hostname / $sudo$username [}─\\[$directory$nix_shell$package$rust$nodejs$haskell$gradle$java$kotlin\\]\${env_var.DIRENV_DIFF}─>](dimmed blue)\n[└─>](dimmed blue) $jobs";
       right_format = "$git_branch$git_commit$git_metrics$git_state$git_status";
 
       directory.format = "[$path]($style)[$read_only]($read_only_style)";
@@ -60,15 +60,15 @@ _: {
       custom.hostname = {
         description = "Normal Hostname for Normal Machine";
         command = "hostname";
-        when = "[ $(hostname) != \"RainbowMachine\" ]";
+        when = "[ $(hostname) != \"Rain8owMachine\" ]";
         shell = "sh";
         format = "@[$output]($style)";
       };
 
-      custom.rainbow-hostname = {
-        description = "Rainbow Hostname for Rainbow Machine";
-        command = "echo \"RainbowMachine\" | lolcat -ftp 0.3 2> /dev/null";
-        when = "[ $(hostname) = \"RainbowMachine\" ]";
+      custom.rain8ow-hostname = {
+        description = "Rain8ow Hostname for Rain8ow Machine";
+        command = "echo \"Rain8owMachine\" | lolcat -ftp 0.3 2> /dev/null";
+        when = "[ $(hostname) = \"Rain8owMachine\" ]";
         shell = "sh";
         format = "@$output";
         ignore_timeout = true;

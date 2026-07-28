@@ -1,5 +1,5 @@
 {
-  description = "NixOS Config Flake - Rainbow Machine";
+  description = "NixOS Config Flake - Rain8ow Machine";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -37,7 +37,7 @@
 
     supportedSystems = ["x86_64-linux"];
     forAllSystems = f: lib.genAttrs supportedSystems f;
-    hostname = "RainbowMachine";
+    hostname = "Rain8owMachine";
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 

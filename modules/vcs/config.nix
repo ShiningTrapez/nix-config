@@ -40,14 +40,14 @@ with lib; {
   config = {
     vcs = {
       user = {
-        name = "Vriska Bitterstar";
+        name = "Vriska Megalovania Bitterstar";
         email = "vriska@shiningtrapezohedron.com";
         signingKey = "${config.home.homeDirectory}/.ssh/id_github.pub";
       };
 
       workUser = {
-        name = "Sophia Lydia Morris-Hind";
-        email = "sophia.morris-hind@bbc.co.uk";
+        name = "Vriska Megalovania Bitterstar";
+        email = "vriska.bitterstar@bbc.co.uk";
         signingKey = "${config.home.homeDirectory}/.ssh/id_github_work.pub";
       };
 

@@ -55,11 +55,9 @@
     vesktop # Discord Alt Client
     slack
     teams-for-linux
+    zoom-us
     vscode
-
-    # If you can't beat them...
     gh
-    github-copilot-cli
 
     # Screenshots
     grim

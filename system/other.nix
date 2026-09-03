@@ -65,7 +65,6 @@ with pkgs; {
       gedit # text editor
       gnome-characters
       gnome-music
-      gnome-photos
       gnome-terminal
       gnome-tour
       hitori # sudoku game
@@ -74,6 +73,9 @@ with pkgs; {
       totem # video player
       file-roller
       snapshot
+
+      # Removed
+      # gnome-photos
     ];
 
     systemPackages = [
@@ -92,7 +94,7 @@ with pkgs; {
       "wheel"
       "docker"
       "adbusers"
-       "i2c"
+      "i2c"
     ];
     uid = 1000;
   };

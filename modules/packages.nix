@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.jq.enable = true;
 
   home.packages = with pkgs; [
@@ -47,7 +44,7 @@
     hunspell
     hunspellDicts.en_GB-large
 
-    texlive.combined.scheme-full
+    texliveFull
     prismlauncher
 
     # openssl-1.1.1w marked insecure

@@ -1,8 +1,0 @@
-window-rule {
-  open-maximized true
-}
-
-window-rule {
-  match app-id="Alacritty"
-  open-maximized false
-}

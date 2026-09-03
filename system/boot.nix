@@ -47,9 +47,9 @@ in {
       "CPU mitigations disabled (performance.insecureDisableMitigations)."
     ];
 
-      services.udev.extraRules = ''
-        KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-      '';
+    services.udev.extraRules = ''
+      KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+    '';
 
     boot = {
       tmp.cleanOnBoot = true;

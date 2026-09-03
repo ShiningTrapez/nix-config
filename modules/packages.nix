@@ -55,7 +55,6 @@
     vesktop # Discord Alt Client
     slack
     teams-for-linux
-    zoom-us
     vscode
     gh
 
